@@ -2,7 +2,7 @@
 title: Hello World
 date: 2023-01-01 12:00:00
 categories:
-  - 示例
+  - 前端
 tags:
   - 入门
   - Hexo
@@ -26,7 +26,7 @@ function helloWorld() {
 
 您可以放置图片，比如：
 
-![示例图片](https://hexo.fluid-dev.com/img/favicon.png)
+![示例图片](https://data.dinging.top/55309.jpg)
 
 ### 表格示例
 

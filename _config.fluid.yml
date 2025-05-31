@@ -5,7 +5,7 @@
 # 网站标题
 navbar:
   # 导航栏左侧的标题，为空则按 hexo config 中的配置
-  blog_title: "我的博客"
+  blog_title: "iDing's 博客"
   # 导航栏毛玻璃特效，实验性功能，可能会造成卡顿
   ground_glass:
     enable: false
