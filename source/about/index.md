@@ -5,7 +5,13 @@ layout: about
 
 ## 关于我
 
-iDing的博客
+iDing's 博客
+
+### 联系方式
+
+qq:2909381729
+
+wx:iYear1213
 
 ## 关于本站
 
