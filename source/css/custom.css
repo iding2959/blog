@@ -1,0 +1,38 @@
+/* 自定义样式 */
+
+/* 全局链接颜色 */
+a {
+  color: #0066cc;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #004080;
+  text-decoration: underline;
+}
+
+/* 文章正文样式 */
+.markdown-body {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* 代码块样式优化 */
+.markdown-body pre {
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 表格样式优化 */
+.markdown-body table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  overflow: auto;
+  width: 100%;
+}
+
+/* 自定义页脚样式 */
+.footer-content {
+  font-size: 0.9rem;
+} 

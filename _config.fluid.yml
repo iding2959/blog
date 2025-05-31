@@ -1,0 +1,162 @@
+#---------------------------
+# Hexo Fluid 主题自定义配置
+#---------------------------
+
+# 网站标题
+navbar:
+  # 导航栏左侧的标题，为空则按 hexo config 中的配置
+  blog_title: "我的博客"
+  # 导航栏毛玻璃特效，实验性功能，可能会造成卡顿
+  ground_glass:
+    enable: false
+
+# 导航菜单
+menu:
+  首页: /
+  归档:
+    path: /archives/
+    icon: iconfont icon-archive-fill
+  分类:
+    path: /categories/
+    icon: iconfont icon-category-fill
+  标签:
+    path: /tags/
+    icon: iconfont icon-tags-fill
+  关于:
+    path: /about/
+    icon: iconfont icon-user-fill
+  友链:
+    path: /links/
+    icon: iconfont icon-link-fill
+
+# 首页
+index:
+  # 首页副标题的独立设置
+  slogan:
+    enable: true
+    # 为空则按 hexo config.subtitle 显示
+    text: "欢迎访问我的博客"
+
+# 友情链接页
+links:
+  # 友链的成员项
+  items:
+    - title: Hexo官网 # 名称
+      link: https://hexo.io # 链接
+      avatar: /img/hexo.png # 头像
+      descr: 快速、简洁且高效的博客框架 # 描述
+    - title: Fluid主题
+      link: https://github.com/fluid-dev/hexo-theme-fluid
+      avatar: https://avatars.githubusercontent.com/u/55862827
+      descr: 一款美观、优雅的Hexo主题
+  # 当成员头像加载失败时，替换为指定图片
+  onerror_avatar: /img/avatar.png # 可选
+  # 友链下方自定义区域，支持 HTML
+  custom:
+    enable: true
+    content: '<hr><div>在这里，我推荐了一些我喜欢的博客和网站。</div>'
+
+# 文章页
+post:
+  # 文章标题下方的元信息
+  meta:
+    # 作者，优先根据 front-matter 里 author 字段，其次是 hexo 配置中 author 值
+    author:
+      enable: true
+    # 文章日期，优先根据 front-matter 里 date 字段，其次是 md 文件日期
+    date:
+      enable: true
+      # 格式参照 ISO-8601 日期格式化
+      format: "LL a"
+    # 字数统计
+    wordcount:
+      enable: true
+    # 阅读时长
+    min2read:
+      enable: true
+      # 每分钟阅读多少字，如果是技术文章，建议降低
+      words: 100
+    # 浏览量
+    views:
+      enable: false
+
+# 页脚
+footer:
+  # 页脚第一行文字
+  content: '
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener">Hexo</a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">Fluid</a>
+  '
+  # 展示网站的 PV、UV 统计数
+  statistics:
+    enable: false
+
+# 深色模式
+dark_mode:
+  # 开启后会在导航栏显示切换按钮
+  enable: true
+  # 默认的选项（followSystem: 跟随系统，light: 浅色，dark: 深色）
+  default: auto
+
+# 全局字体配置
+font:
+  # 文章内容的字体
+  font_size: 16px
+  # 代码的字体
+  code_font_size: 85%
+
+# 打赏
+reward:
+  enable: false
+  # 打赏图标
+  icon: fas fa-donate
+  # 打赏标题
+  title: 感谢您的支持
+  # 打赏方式
+  methods:
+    # 支付宝
+    # alipay:
+    #   icon: fab fa-alipay
+    #   text: 支付宝
+    #   link: https://example.com
+    # 微信
+    # wechat:
+    #   icon: fab fa-weixin
+    #   text: 微信
+    #   link: https://example.com
+
+# 文章目录
+toc:
+  enable: true
+  # 是否监听滚动变化持续高亮当前章节
+  follow: true
+  # 简洁模式，显示成目录形式
+  expand_all: true
+
+# 代码高亮
+code:
+  copy_btn: true
+  language:
+    enable: true
+  highlight:
+    enable: true
+    lib: "highlightjs"
+
+# 图片懒加载
+lazyload:
+  enable: true
+
+# 搜索功能
+search:
+  enable: true
+  # 文章内容搜索
+  content: true
+
+# 指定自定义 css 文件路径
+custom_css:
+  - /css/custom.css
+
+# 网页访问统计
+web_analytics:
+  enable: false 
