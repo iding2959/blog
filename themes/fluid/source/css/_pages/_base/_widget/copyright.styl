@@ -55,6 +55,47 @@
       i.iconfont
         font-size 1rem
 
+  .license-notice
+    margin-top 1rem
+    padding-top .75rem
+    border-top 1px solid var(--line-color)
+    display flex
+    justify-content space-between
+    align-items center
+    flex-wrap wrap
+    
+    .license-notice-text
+      font-size .85rem
+      color var(--sec-text-color)
+      font-weight bold
+    
+    .copy-btn
+      border 2px solid var(--post-link-color)
+      outline none
+      background-color var(--post-link-color)
+      color #fff
+      padding .5rem 1rem
+      border-radius 4px
+      font-size .9rem
+      font-weight bold
+      cursor pointer
+      transition all .3s ease-in-out
+      box-shadow 0 2px 5px rgba(0, 0, 0, 0.1)
+      
+      &:hover
+        background-color var(--link-hover-color)
+        transform translateY(-2px)
+        box-shadow 0 4px 8px rgba(0, 0, 0, 0.15)
+      
+      &.copied
+        background-color #28a745
+        border-color #28a745
+        color #fff
+
+      i.iconfont
+        margin-right .4rem
+        font-size 1rem
+
   @media (max-width: 575px) and (min-width: 425px)
     .license-meta
 
@@ -72,6 +113,15 @@
 
       .license-meta-date
         order -1
+    
+    .license-notice
+      flex-direction column
+      align-items flex-start
+      
+      .copy-btn
+        margin-top .5rem
+        width 100%
+        text-align center
 
   @media (max-width: 424px)
     &::after
@@ -88,3 +138,12 @@
 
         div:nth-child(1)
           margin-right .5rem
+    
+    .license-notice
+      flex-direction column
+      align-items flex-start
+      
+      .copy-btn
+        margin-top .5rem
+        width 100%
+        text-align center

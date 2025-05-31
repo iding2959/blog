@@ -59,6 +59,47 @@
         </div>
       <% } %>
     </div>
+    <div class="license-notice">
+      <div class="license-notice-text">转发请注明出处</div>
+      <button class="copy-btn" id="copyArticleInfo" data-title="<%= page.title %>" data-url="<%= decode_url(page.permalink) %>" data-author="<%- page.author || config.author %>">
+        <i class="iconfont icon-copy"></i> 复制引用信息
+      </button>
+    </div>
     <div class="license-icon iconfont"></div>
   </div>
 <% } %>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const copyBtn = document.getElementById('copyArticleInfo');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', function() {
+      const title = this.getAttribute('data-title');
+      const url = this.getAttribute('data-url');
+      const author = this.getAttribute('data-author');
+      
+      const text = `标题：${title}\n作者：${author}\n链接：${url}\n`;
+      
+      navigator.clipboard.writeText(text).then(
+        function() {
+          // 复制成功，显示临时提示
+          copyBtn.classList.add('copied');
+          copyBtn.innerHTML = '<i class="iconfont icon-check"></i> 复制成功';
+          
+          setTimeout(function() {
+            copyBtn.classList.remove('copied');
+            copyBtn.innerHTML = '<i class="iconfont icon-copy"></i> 复制引用信息';
+          }, 2000);
+        }, 
+        function() {
+          // 复制失败
+          copyBtn.innerHTML = '<i class="iconfont icon-close"></i> 复制失败';
+          setTimeout(function() {
+            copyBtn.innerHTML = '<i class="iconfont icon-copy"></i> 复制引用信息';
+          }, 2000);
+        }
+      );
+    });
+  }
+});
+</script>

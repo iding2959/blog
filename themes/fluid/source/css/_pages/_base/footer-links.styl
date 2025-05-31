@@ -1,0 +1,104 @@
+// 页脚友情链接样式
+
+.footer-links-container
+  width 100%
+  display flex
+  justify-content center
+
+.footer-links
+  margin-top 1.5rem
+  padding-top 1.5rem
+  border-top 1px solid var(--line-color)
+  max-width 960px
+  margin-left auto
+  margin-right auto
+  width 95%
+  
+  .footer-links-title
+    color var(--sec-text-color)
+    font-size 1.1rem
+    text-align center
+    margin-bottom 1rem
+  
+  .footer-links-wrapper
+    width 100%
+    display flex
+    justify-content center
+    
+  .footer-links-items
+    display flex
+    flex-wrap wrap
+    margin -.5rem
+    justify-content flex-start
+    max-width 960px
+    width 100%
+    
+  .footer-links-item
+    display flex
+    flex-direction column
+    padding .5rem
+    margin .25rem
+    color var(--post-text-color)
+    background-color var(--link-hover-bg-color)
+    border-radius 4px
+    transition all .3s ease
+    position relative
+    overflow hidden
+    
+    &:hover
+      text-decoration none
+      color var(--link-hover-color)
+      background-color var(--board-color)
+      box-shadow 0 2px 8px rgba(0, 0, 0, .1)
+      transform translateY(-2px)
+      
+      .footer-links-item-desc
+        max-height 60px
+        opacity 1
+        transition max-height 0.3s ease, opacity 0.3s ease
+    
+    .footer-links-item-content
+      display flex
+      align-items center
+      
+    .footer-links-item-avatar
+      width 20px
+      height 20px
+      margin-right .5rem
+      border-radius 50%
+      object-fit cover
+      
+    .footer-links-item-text
+      font-size .9rem
+      
+    .footer-links-item-desc
+      font-size 0.8rem
+      color var(--sec-text-color)
+      margin-top 0.3rem
+      max-height 0
+      opacity 0
+      overflow hidden
+      transition max-height 0.3s ease, opacity 0.3s ease
+      
+  // 移动端适配
+  @media (max-width: 767px)
+    max-width 100%
+    
+    .footer-links-items
+      margin -.25rem
+      justify-content center
+      
+    .footer-links-item
+      padding .25rem .5rem
+      margin .15rem
+      
+      .footer-links-item-avatar
+        width 16px
+        height 16px
+        margin-right .3rem
+      
+      .footer-links-item-text
+        font-size .8rem
+        
+      .footer-links-item-desc
+        font-size 0.75rem 

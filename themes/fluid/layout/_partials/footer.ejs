@@ -4,6 +4,14 @@
       <%- theme.footer.content %>
     </div>
   <% } %>
+  
+  <% /* 在非首页显示友情链接 */ %>
+  <% if (page.path !== 'index.html' && page.layout !== 'links') { %>
+    <div class="footer-links-container d-flex justify-content-center">
+      <%- partial('_partials/footer/site_links.ejs') %>
+    </div>
+  <% } %>
+  
   <% if (theme.footer.statistics.enable) { %>
     <%- partial('_partials/footer/statistics.ejs') %>
   <% } %>

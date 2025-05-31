@@ -1,0 +1,29 @@
+<!-- 网站底部友情链接 -->
+<% if (theme.links && theme.links.items && theme.links.items.length > 0) { %>
+  <div class="footer-links">
+    <div class="footer-links-title mb-2">
+      <strong>友情链接</strong>
+    </div>
+    <div class="footer-links-wrapper">
+      <div class="footer-links-items">
+        <% for(const each of theme.links.items || []) { %>
+          <% if (!each.title || !each.link) continue %>
+          <a href="<%= url_for(each.link) %>" class="footer-links-item" target="_blank" rel="noopener">
+            <div class="footer-links-item-content">
+              <% if (each.avatar || each.image) { %>
+                <img class="footer-links-item-avatar" src="<%= url_for(each.avatar || each.image) %>" alt="<%= each.title %>"
+                    onerror="this.onerror=null; this.src=this.srcset='<%= url_for(theme.links.onerror_avatar) %>'"/>
+              <% } %>
+              <span class="footer-links-item-text"><%= each.title %></span>
+            </div>
+            <% if (each.descr) { %>
+              <div class="footer-links-item-desc">
+                <%= each.descr %>
+              </div>
+            <% } %>
+          </a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+<% } %> 

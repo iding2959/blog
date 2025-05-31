@@ -43,11 +43,11 @@ links:
   items:
     - title: Hexo官网 # 名称
       link: https://hexo.io # 链接
-      avatar: /img/hexo.png # 头像
+      avatar: https://hexo.io/logo.svg # 头像
       descr: 快速、简洁且高效的博客框架 # 描述
     - title: Fluid主题
       link: https://github.com/fluid-dev/hexo-theme-fluid
-      avatar: https://avatars.githubusercontent.com/u/55862827
+      avatar: /img/fluid.png
       descr: 一款美观、优雅的Hexo主题
   # 当成员头像加载失败时，替换为指定图片
   onerror_avatar: /img/avatar.png # 可选
@@ -83,11 +83,7 @@ post:
 # 页脚
 footer:
   # 页脚第一行文字
-  content: '
-    <a href="https://hexo.io" target="_blank" rel="nofollow noopener">Hexo</a>
-    <i class="iconfont icon-love"></i>
-    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">Fluid</a>
-  '
+  content: ''
   # 展示网站的 PV、UV 统计数
   statistics:
     enable: false
