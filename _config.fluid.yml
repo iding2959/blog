@@ -35,7 +35,7 @@ index:
   slogan:
     enable: true
     # 为空则按 hexo config.subtitle 显示
-    text: "欢迎访问我的博客"
+    text: "欢迎访问iDing's博客"
 
 # 友情链接页
 links:

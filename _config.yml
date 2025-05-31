@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 我的博客
+title: iDing's 博客
 subtitle: '个人技术分享与生活记录'
 description: '基于Hexo的个人博客，分享技术、生活和思考'
 keywords: 博客,技术,生活,Hexo,Fluid
-author: 博主
+author: iDing
 language: zh-CN
 timezone: 'Asia/Shanghai'
 
