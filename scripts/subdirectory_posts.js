@@ -7,7 +7,7 @@ hexo.extend.filter.register('post_permalink', function (permalink) {
   // Hexo已经生成了包含子目录的permalink
   // 我们需要分析它并删除子目录部分
   
-  // 例如：2025/05/31/tech/test-subdirectory/ → 2025/05/31/test-subdirectory/
+  // 例如：2025/05/tech/test-subdirectory/ → 2025/05/test-subdirectory/
   
   // 获取_posts目录的路径
   const postDir = join(this.source_dir, '_posts');

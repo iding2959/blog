@@ -9,3 +9,4 @@ _multiconfig.yml
 node_modules
 .github
 public
+start.bat
