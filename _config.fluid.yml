@@ -19,6 +19,11 @@ menu:
   分类:
     path: /categories/
     icon: iconfont icon-category-fill
+    submenu:
+      工具: /categories/工具/
+      前端: /categories/前端/
+      后端: /categories/后端/
+      其他: /categories/其他/
   标签:
     path: /tags/
     icon: iconfont icon-tags-fill
