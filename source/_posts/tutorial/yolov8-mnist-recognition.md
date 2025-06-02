@@ -24,7 +24,7 @@ categories: 教程
 
 3. 通过摄像头实时识别手写数字
 
-   完整代码已经开源在Github：[https://github.com/idinging/mnisttyolo8](Yolo8手写体实时检测)
+   完整代码已经开源在Github：[Yolo8手写体实时检测](https://github.com/idinging/mnisttyolo8)
 
 相比传统的分类方法，使用YOLOv8进行目标检测的优势在于：能同时检测多个数字、处理不同尺寸的输入图像，并在复杂背景中定位识别数字。
 
