@@ -1,6 +1,6 @@
 ---
 title: YOLOv8实现手写数字识别系统：从MNIST到实时摄像头检测
-date: 2025-06-03 14:00:00
+date: 2025-06-02 14:00:00
 tags: 
   - YOLOv8
   - MNIST
@@ -19,8 +19,12 @@ categories: 教程
 这个项目结合了传统的MNIST数据集和现代的目标检测算法YOLOv8，实现了以下功能：
 
 1. 将MNIST数据集转换为YOLO格式
+
 2. 使用YOLOv8训练手写数字识别模型
+
 3. 通过摄像头实时识别手写数字
+
+   完整代码已经开源在Github：[https://github.com/idinging/mnisttyolo8](Yolo8手写体实时检测)
 
 相比传统的分类方法，使用YOLOv8进行目标检测的优势在于：能同时检测多个数字、处理不同尺寸的输入图像，并在复杂背景中定位识别数字。
 
