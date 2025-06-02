@@ -1,6 +1,6 @@
 ---
 title: NVIDIA CUDA安装教程 - GPU深度学习环境配置指南
-date: 2023-10-15 14:30:00
+date: 2025-06-02 13:30:00
 tags: 
   - CUDA
   - NVIDIA
