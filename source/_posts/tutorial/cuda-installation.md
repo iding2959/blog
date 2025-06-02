@@ -23,7 +23,7 @@ CUDA（Compute Unified Device Architecture）是NVIDIA推出的并行计算平�
 
 ![打开NVIDIA系统信息](../../img/tutorial/cuda-check-version.png)
 
-在系统信息窗口中，您可以查看到您的显卡型号以及支持的CUDA版本。如图所示，此系统适配的CUDA版本是12.9，当然低版本的11.1也是可以正常使用的。
+在系统信息窗口中，您可以查看到您的显卡型号以及支持的CUDA版本。如图所示，此系统适配的CUDA版本是12.9。
 
 ![NVIDIA系统信息](../../img/tutorial/cuda-system-info.png)
 
@@ -35,13 +35,13 @@ CUDA（Compute Unified Device Architecture）是NVIDIA推出的并行计算平�
 
 打开PyTorch官网：https://pytorch.org/get-started/locally/
 
-根据您的CUDA版本，选择适合的PyTorch安装命令。如下图所示，务必选择与您的CUDA版本匹配的选项（本例中应选择CUDA 11.1）。
+根据您的CUDA版本，选择适合的PyTorch安装命令。如下图所示，务必选择与您的CUDA版本匹配的选项（本例中应选择CUDA 12.8）。
 
 复制对应的命令 然后到 python环境中执行下载命令 耐心等待下载完成
 
 ![选择PyTorch版本](../../img/tutorial/pytorch-select-version.png)
 
-> **注意**：如果您选择了不匹配的CUDA版本（如选择CUDA 10.2而您的显卡支持CUDA 11.1），可能会导致在深度学习训练时出现不兼容问题。这是一个非常常见的血泪教训。
+> **注意**：如果您选择了不匹配的CUDA版本（如选择CUDA 11.8而您的显卡支持CUDA 12.8），可能会导致在深度学习训练时出现不兼容问题。这是一个非常常见的血泪教训。
 
 ## 3. 验证PyTorch安装
 
