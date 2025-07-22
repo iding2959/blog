@@ -44,13 +44,13 @@ Clash Verge Rev支持使用JavaScript脚本动态修改配置。我们可以编�
 
 ```javascript
 function main(config, profileName) {
-  // proxy 为 Clash Verge Rev 中节点名称 port为暴露端口 
+  // proxy 为 Clash Verge Rev 中节点名称或节点组  port为暴露端口 
   // type 为暴露类型    name 为自定义的名称
   const listeners = [{
     "name": "新加坡IP",
     "type": "mixed",
     "port": 40011,
-    "proxy": "新加坡-优化1" // 节点对应的名称
+    "proxy": "新加坡" // 节点对应的名称
   },
     {
       "name": "香港IP",
@@ -66,9 +66,9 @@ function main(config, profileName) {
 
 这个脚本会：
 1. 创建两个监听器配置
-2. 第一个监听器使用端口40011，代理为"🇸🇬 新加坡节点"分组
-3. 第二个监听器使用端口40018，代理为"香港(HK)节点"
-4. 将这两个监听器配置应用到Clash配置中
+2. 第一个监听器使用端口40011，代理为"新加坡"分组
+3. 第二个监听器使用端口40018，代理为"香港-优化1"
+4. 将这两个监听器配置应用到Clash Verge Rev 全局扩展脚本中
 
 ## 在指纹浏览器中配置代理
 
