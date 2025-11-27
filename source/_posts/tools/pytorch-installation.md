@@ -1,6 +1,6 @@
 ---
 title: PyTorch 三件套版本对应关系与安装指南
-date: 2025-11-27 18:00:00
+date: 2025-11-17 18:00:00
 categories:
   - 深度学习
   - Python
@@ -392,4 +392,5 @@ pip install torch==2.8.* torchvision torchaudio==2.8.* \
 ---
 
 💡 **小贴士**：建议使用 uv 管理 Python 项目依赖，它不仅安装速度快，而且能够智能解决版本冲突问题。配合本文的版本对应表，可以快速搭建稳定的 PyTorch 开发环境！
+
 
