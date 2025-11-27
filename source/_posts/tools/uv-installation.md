@@ -1,6 +1,6 @@
 ---
 title: uv 安装指南 - 极速 Python 包管理工具
-date: 2025-11-27 16:45:00
+date: 2025-11-07 16:45:00
 categories:
   - 工具
   - Python
@@ -304,4 +304,5 @@ rm $HOME\.local\bin\uvw.exe
 - [官方指南](https://docs.astral.sh/uv/guides/)
 
 使用 uv 可以大幅提升 Python 开发效率，告别漫长的依赖安装等待时间，享受更流畅的开发体验！
+
 
