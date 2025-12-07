@@ -72,57 +72,59 @@ cat /proc/sys/net/ipv4/ip_forward
 1
 ```
 表示生效。
-2. 永久生效（防止重启失效）
+### 2. 永久生效（防止重启失效）
+```
 sudo nano /etc/sysctl.conf
-
+```
 
 添加或取消注释：
-
+```
 net.ipv4.ip_forward=1
-
+```
 
 应用配置：
-
+```
 sudo sysctl -p
-
-四、配置 NAT 网络共享（核心步骤）
+```
+## 四、配置 NAT 网络共享（核心步骤）
+```bash
 sudo iptables -t nat -A POSTROUTING -o enx5c7dae4142f1 -j MASQUERADE
 sudo iptables -A FORWARD -i enp1s0 -j ACCEPT
 sudo iptables -A FORWARD -o enp1s0 -j ACCEPT
-
+```
 
 验证 NAT 是否生效：
-
+```
 sudo iptables -t nat -L -n -v
-
+```
 
 看到 MASQUERADE 即代表配置成功。
 
-五、修复 enp1s0 物理网口为 DOWN 的问题
+## 五、修复 enp1s0 物理网口为 DOWN 的问题
 
 当发现 enp1s0 为：
-
+```
 state DOWN
-
+```
 
 可手动拉起：
-
+```
 sudo ip link set enp1s0 up
-
+```
 
 验证：
-
+```
 ip a | grep enp1s0 -A 5
-
+```
 
 只要出现：
-
+```
 state UP
-
+```
 
 说明物理链路正常。
 
-六、路由器不支持 AP 模式的解决方案说明
+## 六、路由器不支持 AP 模式的解决方案说明
 
 由于路由器仅支持：
 
@@ -148,68 +150,72 @@ NAT 转发设备
 
 通过 WAN 口自动获取 IP 上网
 
-七、为 enp1s0 设置固定网关 IP
+## 七、为 enp1s0 设置固定网关 IP
+```
 sudo ip addr add 192.168.50.1/24 dev enp1s0
-
+```
 
 验证：
-
+```
 ip a | grep enp1s0 -A 5
-
+```
 
 应看到：
-
+```
 inet 192.168.50.1/24
-
-八、安装并配置 DHCP 服务（为路由器分配 IP）
-1. 安装 DHCP 服务
+```
+## 八、安装并配置 DHCP 服务（为路由器分配 IP）
+### 1. 安装 DHCP 服务
+```
 sudo apt update
 sudo apt install isc-dhcp-server -y
-
-2. 指定 DHCP 服务生效的网卡
+```
+### 2. 指定 DHCP 服务生效的网卡
+```
 sudo nano /etc/default/isc-dhcp-server
-
+```
 
 修改：
-
+```
 INTERFACESv4="enp1s0"
-
-3. 配置 DHCP 地址池
+```
+### 3. 配置 DHCP 地址池
+```
 sudo nano /etc/dhcp/dhcpd.conf
-
+```
 
 在文件末尾添加：
-
+```bash
 subnet 192.168.50.0 netmask 255.255.255.0 {
   range 192.168.50.100 192.168.50.200;
   option routers 192.168.50.1;
   option domain-name-servers 8.8.8.8, 1.1.1.1;
 }
-
-4. 启动 DHCP 服务
+```
+### 4. 启动 DHCP 服务
+```
 sudo systemctl restart isc-dhcp-server
 sudo systemctl enable isc-dhcp-server
-
+```
 
 检查状态：
-
+```
 systemctl status isc-dhcp-server
-
+```
 
 状态需为：
-
+```
 active (running)
-
-九、路由器后台最终设置方式
-1. 正确接线方式
+```
+## 九、路由器后台最终设置方式
+### 1. 正确接线方式
 Ubuntu enp1s0  ←——网线——→  路由器 WAN 口
 
-2. 路由器上网方式选择
+### 2. 路由器上网方式选择
 
 ✅ 选择：
 
 自动获取 IP（DHCP）
-
 
 ❌ 不要选择：
 
@@ -217,14 +223,14 @@ Ubuntu enp1s0  ←——网线——→  路由器 WAN 口
 
 固定 IP
 
-十、最终验证
-1. 查看路由器 WAN 口 IP
+## 十、最终验证
+### 1. 查看路由器 WAN 口 IP
 
 应获取到：
 
 192.168.50.xxx
 
-2. 手机测试公网 IP
+### 2. 手机测试公网 IP
 
 连接路由器 WiFi 后访问：
 
@@ -243,10 +249,12 @@ https://ip.sb
 
 ✅ 代表全屋科学上网成功。
 
-十一、方案优劣势总结
-方案	性能	稳定性	自由度	可扩展性
-Ubuntu + Clash 网关	⭐⭐⭐⭐⭐	⭐⭐⭐⭐⭐	⭐⭐⭐⭐⭐	⭐⭐⭐⭐⭐
-普通 OpenWRT 旁路由	⭐⭐⭐	⭐⭐⭐⭐	⭐⭐⭐	⭐⭐⭐
+### 十一、方案优劣势总结
+| 方案                | 性能    | 稳定性   | 自由度   | 可扩展性  |
+| ----------------- | ----- | ----- | ----- | ----- |
+| Ubuntu + Clash 网关 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| 普通 OpenWRT 旁路由    | ⭐⭐⭐   | ⭐⭐⭐⭐  | ⭐⭐⭐   | ⭐⭐⭐   |
+
 
 本方案优势：
 
@@ -258,7 +266,7 @@ Ubuntu + Clash 网关	⭐⭐⭐⭐⭐	⭐⭐⭐⭐⭐	⭐⭐⭐⭐⭐	⭐⭐⭐�
 
 性能远高于传统软路由
 
-十二、结语
+## 十二、结语
 
 本方案本质上是：
 
