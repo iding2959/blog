@@ -100,6 +100,33 @@ sudo iptables -t nat -L -n -v
 
 看到 MASQUERADE 即代表配置成功。
 
+### 永久生效
+你现在这套规则是 “内存临时的”，必须马上做：
+```
+sudo apt install iptables-persistent -y
+```
+
+安装过程中：
+```
+Save current IPv4 rules? → 选 Yes ✅
+Save current IPv6 rules? → 选 Yes ✅
+```
+
+然后验证是否真正保存：
+```
+sudo cat /etc/iptables/rules.v4
+```
+
+如果你看到：
+```
+-A POSTROUTING -o enx5c7dae4142f1 -j MASQUERADE
+-A FORWARD -i enp1s0 -j ACCEPT
+-A FORWARD -o enp1s0 -j ACCEPT
+```
+
+✅ 这就代表：
+哪怕你断电 + 重启 + 更新系统，路由器都还能继续科学上网
+
 ## 五、修复 enp1s0 物理网口为 DOWN 的问题
 
 当发现 enp1s0 为：
