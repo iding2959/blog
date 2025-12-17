@@ -109,31 +109,34 @@ mihomo 不再抢 CPU0
 系统与中断更稳定
 ### 持久化 🔧 使用 systemd 为 clash-verge-service 永久绑定 CPU 核心
 
-在对网关代理进行性能优化时，很多人会直接对 mihomo（Clash Core）进程使用 taskset 进行 CPU 绑定。但在 Clash Verge（Linux） 的场景下，更合理、也更“工程化”的做法，是直接对 systemd 服务 clash-verge-service 设置 CPU 亲和性。
+<details>
+<summary><strong>📌 为什么要给 clash-verge-service 绑定 CPUAffinity？</strong></summary>
+
+在对网关代理进行性能优化时，很多人会直接对 mihomo（Clash Core）进程使用 taskset 进行 CPU 绑定。但在 Clash Verge（Linux） 的场景下，更合理、也更“工程化”的做法，是直接对 systemd 服务 **clash-verge-service** 设置 CPU 亲和性。
 
 这样可以确保：
 
-服务重启 / 崩溃自动拉起后，CPU 绑定依然生效
+- 服务重启 / 崩溃自动拉起后，CPU 绑定依然生效  
+- 系统重启后无需手动干预  
+- 不会被 Clash Verge 的升级覆盖  
 
-系统重启后无需手动干预
-
-不会被 Clash Verge 的升级覆盖
-
-📌 为什么绑定的是 clash-verge-service，而不是 mihomo？
+### 为什么绑定的是 clash-verge-service，而不是 mihomo？
 
 在 Clash Verge 中：
 
-clash-verge-service 是 systemd 管理的主服务
-
-mihomo（或 verge-mihomo）是其内部拉起的核心进程
-
-systemd 的 CPUAffinity 会自动继承到子进程
+- `clash-verge-service` 是 systemd 管理的主服务  
+- `mihomo`（或 `verge-mihomo`）是其内部拉起的核心进程  
+- systemd 的 `CPUAffinity` 会自动继承到子进程  
 
 也就是说：
 
-只要限制了 clash-verge-service，mihomo 自然就会被限制在同一组 CPU 上运行
+> 只要限制了 `clash-verge-service`，  
+> `mihomo` 自然就会被限制在同一组 CPU 上运行。
 
-这也是 systemd 官方推荐的做法。
+这也是 **systemd 官方推荐的做法**。
+
+</details>
+
 
 🛠 设置 CPUAffinity（推荐方式）
 
@@ -230,9 +233,6 @@ sudo systemctl enable rps-enp1s0
 sudo systemctl start rps-enp1s0
 ```
 
-📌 否则严格来说，你这篇博客“不是全持久化”
-说明：
-
 允许更多网络流量在多 CPU 之间分发
 
 避免 RX 堆积在单核
@@ -248,20 +248,11 @@ sudo sysctl --system
 
 ```
 
-永久生效：
-```bash
-echo "net.ipv4.tcp_congestion_control=bbr" | sudo tee -a /etc/sysctl.conf
-```
-### ✅ 4. 提高 conntrack 上限（高并发必须）
-```bash
-sudo sysctl -w net.netfilter.nf_conntrack_max=262144
-```
-
 验证：
 ```bash
 cat /proc/sys/net/netfilter/nf_conntrack_max
 ```
-六、优化效果对比
+## 六、优化效果对比
 优化前：
 
 load average: 2.13, 1.58, 1.19
