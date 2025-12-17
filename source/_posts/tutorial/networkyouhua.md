@@ -41,7 +41,7 @@ categories: 教程
 
 ```bash
 lscpu
-
+```
 关键参数：
 
 CPU：AMD GX-420GI
