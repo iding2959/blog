@@ -107,7 +107,102 @@ ps -o pid,psr,comm -p <PID>
 效果：
 mihomo 不再抢 CPU0
 系统与中断更稳定
+### 持久化 🔧 使用 systemd 为 clash-verge-service 永久绑定 CPU 核心
 
+在对网关代理进行性能优化时，很多人会直接对 mihomo（Clash Core）进程使用 taskset 进行 CPU 绑定。但在 Clash Verge（Linux） 的场景下，更合理、也更“工程化”的做法，是直接对 systemd 服务 clash-verge-service 设置 CPU 亲和性。
+
+这样可以确保：
+
+服务重启 / 崩溃自动拉起后，CPU 绑定依然生效
+
+系统重启后无需手动干预
+
+不会被 Clash Verge 的升级覆盖
+
+📌 为什么绑定的是 clash-verge-service，而不是 mihomo？
+
+在 Clash Verge 中：
+
+clash-verge-service 是 systemd 管理的主服务
+
+mihomo（或 verge-mihomo）是其内部拉起的核心进程
+
+systemd 的 CPUAffinity 会自动继承到子进程
+
+也就是说：
+
+只要限制了 clash-verge-service，mihomo 自然就会被限制在同一组 CPU 上运行
+
+这也是 systemd 官方推荐的做法。
+
+🛠 设置 CPUAffinity（推荐方式）
+
+使用 systemd 的 drop-in 覆盖配置：
+```bash
+sudo systemctl edit clash-verge-service
+```
+
+在打开的编辑器中，写入以下内容（只保留这一段）：
+```bash
+[Service]
+CPUAffinity=2 3
+```
+
+保存并退出后，执行：
+```bash
+sudo systemctl daemon-reexec
+sudo systemctl restart clash-verge-service
+```
+🔍 验证 CPU 绑定是否生效
+1️⃣ 查看 systemd 层面的 CPUAffinity
+```bash
+systemctl show clash-verge-service -p CPUAffinity
+```bash
+
+期望输出：
+```bash
+CPUAffinity=2 3
+```
+2️⃣ 查看服务进程实际运行的 CPU
+```bash
+ps -o pid,psr,comm -C clash-verge-service
+```
+
+示例输出：
+```bash
+PID     PSR   COMMAND
+16340     3   clash-verge-ser
+```
+
+其中：
+
+PSR=3 表示进程当前运行在 CPU3
+
+与设置的 CPUAffinity=2 3 完全一致
+
+✅ 为什么不用 taskset？
+
+taskset 虽然能立刻生效，但存在明显问题：
+
+只对当前进程有效
+
+服务重启 / 系统重启后全部失效
+
+容易与 systemd 的调度管理产生冲突
+
+相比之下：
+
+systemd 的 CPUAffinity 是长期、稳定、可维护的解决方案
+
+🧠 实际效果
+
+在为 clash-verge-service 绑定 CPU 后：
+
+网关整体 load average 明显下降
+
+网络转发延迟和抖动减少
+
+高并发场景（Telegram / 多设备同时访问）更加稳定
 ### ✅ 2. 启用并扩大 RPS（软中断分流）
 ```bash
 echo 32768 | sudo tee /sys/class/net/enp1s0/queues/rx-0/rps_flow_cnt
