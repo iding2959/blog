@@ -207,7 +207,30 @@ systemd 的 CPUAffinity 是长期、稳定、可维护的解决方案
 ```bash
 echo 32768 | sudo tee /sys/class/net/enp1s0/queues/rx-0/rps_flow_cnt
 ```
+✅ 推荐的持久化方案
+方法一：systemd oneshot（推荐）
+```bash
+# /etc/systemd/system/rps-enp1s0.service
+[Unit]
+Description=Enable RPS for enp1s0
+After=network-online.target
 
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c 'echo 32768 > /sys/class/net/enp1s0/queues/rx-0/rps_flow_cnt'
+
+[Install]
+WantedBy=multi-user.target
+```
+
+启用：
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable rps-enp1s0
+sudo systemctl start rps-enp1s0
+```
+
+📌 否则严格来说，你这篇博客“不是全持久化”
 说明：
 
 允许更多网络流量在多 CPU 之间分发
@@ -216,7 +239,13 @@ echo 32768 | sudo tee /sys/class/net/enp1s0/queues/rx-0/rps_flow_cnt
 
 ### ✅ 3. 启用 BBR 拥塞控制
 ```bash
-sudo sysctl -w net.ipv4.tcp_congestion_control=bbr
+cat <<EOF | sudo tee /etc/sysctl.d/99-gateway-tuning.conf
+net.ipv4.tcp_congestion_control=bbr
+net.netfilter.nf_conntrack_max=262144
+EOF
+
+sudo sysctl --system
+
 ```
 
 永久生效：
