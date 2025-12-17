@@ -33,7 +33,12 @@ categories: 教程
 
 硬件性能并不弱，但**调度和中断分布不合理**。
 
----
+查看当前负载
+```bash
+uptime
+cat /proc/interrupts | grep enp1s0
+ps -o pid,psr,comm -C clash-verge-service
+```
 
 ## 二、硬件与系统环境
 
