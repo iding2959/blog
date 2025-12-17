@@ -56,9 +56,9 @@ CPU：AMD GX-420GI
 
 ## 三、问题定位
 ### 1️⃣ 网卡中断集中
-'''
+```bash
 cat /proc/interrupts | grep enp1s0
-'''
+```
 发现：
 
 enp1s0 的 MSI-X 中断几乎全部落在 CPU1
@@ -94,26 +94,24 @@ ssh
 ### ✅ 1. 绑定 mihomo 到指定 CPU（核心优化）
 
 将代理核心固定到 CPU 2,3：
-'''
+```bash
 pgrep -f mihomo
 sudo taskset -cp 2,3 <PID>
-'''
+```
 
 验证：
-'''
+```bash
 ps -o pid,psr,comm -p <PID>
-'''
+```
 
 效果：
-'''
 mihomo 不再抢 CPU0
-'''
 系统与中断更稳定
 
 ### ✅ 2. 启用并扩大 RPS（软中断分流）
-'''
+```bash
 echo 32768 | sudo tee /sys/class/net/enp1s0/queues/rx-0/rps_flow_cnt
-'''
+```
 
 说明：
 
@@ -122,32 +120,31 @@ echo 32768 | sudo tee /sys/class/net/enp1s0/queues/rx-0/rps_flow_cnt
 避免 RX 堆积在单核
 
 ### ✅ 3. 启用 BBR 拥塞控制
-'''
+```bash
 sudo sysctl -w net.ipv4.tcp_congestion_control=bbr
-'''
+```
 
 永久生效：
-'''
+```bash
 echo "net.ipv4.tcp_congestion_control=bbr" | sudo tee -a /etc/sysctl.conf
-'''
+```
 ### ✅ 4. 提高 conntrack 上限（高并发必须）
-'''
+```bash
 sudo sysctl -w net.netfilter.nf_conntrack_max=262144
-'''
+```
 
 验证：
-'''
+```bash
 cat /proc/sys/net/netfilter/nf_conntrack_max
-'''
+```
 六、优化效果对比
 优化前：
-'''
+
 load average: 2.13, 1.58, 1.19
-'''
+
 优化后：
-'''
 load average: 0.47, 0.91, 1.17
-'''
+
 
 📉 负载显著下降，且趋势稳定
 
