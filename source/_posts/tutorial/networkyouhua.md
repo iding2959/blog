@@ -160,7 +160,7 @@ sudo systemctl restart clash-verge-service
 1️⃣ 查看 systemd 层面的 CPUAffinity
 ```bash
 systemctl show clash-verge-service -p CPUAffinity
-```bash
+```
 
 期望输出：
 ```bash
@@ -237,7 +237,7 @@ sudo systemctl start rps-enp1s0
 
 避免 RX 堆积在单核
 
-### ✅ 3. 启用 BBR 拥塞控制
+### ✅ 3. 启用 BBR + 调整 conntrack 上限
 ```bash
 cat <<EOF | sudo tee /etc/sysctl.d/99-gateway-tuning.conf
 net.ipv4.tcp_congestion_control=bbr
