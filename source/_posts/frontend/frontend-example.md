@@ -1,8 +1,7 @@
 ---
 title: 前端开发入门
 date: 2025-05-01 10:00:00
-categories:
-  - 前端
+categories: 前端
 tags:
   - JavaScript
   - HTML

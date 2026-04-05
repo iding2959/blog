@@ -3,6 +3,7 @@ title: UV：极速Python包管理器安装配置教程
 date: 2025-07-07 00:00:00
 categories:
   - 工具
+  - Python
 tags:
   - Python
   - UV

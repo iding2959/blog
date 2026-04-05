@@ -5,8 +5,9 @@ tags:
   - Git
   - GitHub
   - TortoiseGit
-categories: 
+categories:
   - 工具
+  - Git
 ---
 
 ## 概述

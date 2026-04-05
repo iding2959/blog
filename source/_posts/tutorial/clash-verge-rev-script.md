@@ -4,6 +4,7 @@ date: 2025-07-22 19:30:00
 index_img: ../../../img/tutorial/clashvert.png
 categories:
   - 教程
+  - 代理
 tags:
   - Clash
   - 代理

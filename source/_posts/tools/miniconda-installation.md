@@ -1,7 +1,9 @@
 ---
 title: Miniconda 完整安装指南：Windows、macOS 与 Linux
 date: 2025-11-21 20:00:00
-categories: 工具
+categories:
+  - 工具
+  - Python
 tags:
   - Miniconda
   - Anaconda

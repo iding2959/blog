@@ -1,7 +1,9 @@
 ---
 title: PyTorch 三件套版本对应关系与安装指南
 date: 2025-11-17 18:00:00
-categories: 工具
+categories:
+  - 工具
+  - 深度学习
 tags:
   - PyTorch
   - 深度学习

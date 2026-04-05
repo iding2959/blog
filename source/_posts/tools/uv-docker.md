@@ -1,7 +1,9 @@
 ---
 title: 使用 uv 优化 Docker 镜像构建
 date: 2026-02-01 15:00:00
-categories: 工具
+categories:
+  - 工具
+  - Docker
 tags: [Python, uv, Docker]
 ---
 

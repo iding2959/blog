@@ -1,8 +1,7 @@
 ---
 title: 开发工具推荐
 date: 2025-05-01 16:45:00
-categories:
-  - 工具
+categories: 工具
 tags:
   - IDE
   - Git

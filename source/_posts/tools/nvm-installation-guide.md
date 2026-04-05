@@ -3,6 +3,7 @@ title: NVM详细安装使用教程
 date: 2025-06-01 10:00:00
 categories:
   - 工具
+  - 前端
 tags:
   - Node.js
   - NVM

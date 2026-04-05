@@ -3,6 +3,7 @@ title: Conda基础命令指南
 date: 2025-05-31 14:30:00
 categories:
   - 工具
+  - Python
 tags:
   - Python
   - Conda

@@ -3,6 +3,7 @@ title: Ubuntu + Clash Verge 打造全屋科学上网网关（超详细实战教�
 date: 2025-12-07 14:30:00
 categories:
   - 教程
+  - 代理
 tags:
   - Clash
   - 代理，路由器

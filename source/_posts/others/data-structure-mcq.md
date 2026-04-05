@@ -1,8 +1,7 @@
 ---
 title: 数据结构选择题
 date: 2023-10-18 10:00:00
-categories:
-  - 其他
+categories: 其他
 tags:
   - 选择题
   - 算法

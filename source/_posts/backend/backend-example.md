@@ -1,8 +1,7 @@
 ---
 title: 后端开发基础
 date: 2025-05-01 14:30:00
-categories:
-  - 后端
+categories: 后端
 tags:
   - Node.js
   - 数据库

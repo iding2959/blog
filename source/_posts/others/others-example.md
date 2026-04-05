@@ -1,8 +1,7 @@
 ---
 title: 程序员生活杂谈
 date: 2025-05-01 20:15:00
-categories:
-  - 其他
+categories: 其他
 tags:
   - 程序员
   - 生活

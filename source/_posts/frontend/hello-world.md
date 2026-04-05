@@ -1,8 +1,7 @@
 ---
 title: Hello World
 date: 2025-04-01 12:00:00
-categories:
-  - 前端
+categories: 前端
 tags:
   - 入门
   - Hexo

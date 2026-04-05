@@ -34,6 +34,20 @@ npm run deploy   # 部署到服务器（需先配置 deploy 类型）
 - Markdown 中图片路径使用相对路径 `../../../img/...`（三层 `../` 回到 `source/` 根目录）
 - 禁止使用 `/img/...` 或 `/source/img/...`，前者本地预览会找不到，后者 Hexo 部署后会找不到
 
+## 分类规范
+
+- 分类使用 front-matter 中的 `categories` 字段，而非 source/_posts/ 的子目录结构
+- 五大一级分类：**前端、后端、工具、教程、其他**
+- 支持嵌套分类，用多行列表格式：
+  ```yaml
+  categories:
+    - 工具
+    - Python
+  ```
+- 子目录按需创建，使用英文名称（如 python/、frontend/、docker/），不可用中文
+- 单级分类直接写：`categories: 前端`
+- source/_posts/ 下只放五大类目录，文章按实际分类设置 front-matter
+
 ## 注意事项
 
 - 分类在 `_config.fluid.yml` 的 `menu` 中手动配置

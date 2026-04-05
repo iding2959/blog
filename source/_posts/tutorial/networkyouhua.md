@@ -9,7 +9,9 @@ tags:
   - mihomo
   - 网络优化
   - 性能调优
-categories: 教程
+categories: 
+  - 教程
+  - 代理
 ---
 
 
