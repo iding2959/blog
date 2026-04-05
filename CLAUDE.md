@@ -28,8 +28,14 @@ npm run deploy   # 部署到服务器（需先配置 deploy 类型）
 - `_config.fluid.yml`：Fluid 主题配置（导航菜单、样式、功能开关等）
 - 主题本身在 `themes/fluid/`，一般不需要直接修改
 
+## 图片路径规范
+
+- 文章中引用的图片统一放在 `source/img/` 目录下
+- Markdown 中图片路径使用相对路径 `../../../img/...`（三层 `../` 回到 `source/` 根目录）
+- 禁止使用 `/img/...` 或 `/source/img/...`，前者本地预览会找不到，后者 Hexo 部署后会找不到
+
 ## 注意事项
 
-- 分类在 `_config.fluid.yml` 的 `menu` 中手动配置，同时需要在每篇文章的 front-matter 中声明 `categories`
+- 分类在 `_config.fluid.yml` 的 `menu` 中手动配置
 - 主题自定义 CSS 路径：`source/css/custom.css`
 - 暗色模式默认开启（跟随系统），可通过 `_config.fluid.yml` 的 `dark_mode.default` 调整

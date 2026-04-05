@@ -17,7 +17,7 @@ tags:
 
 用鼠标右键点击「开始」按钮，或者直接按 `Win + X` 组合键，选择 **「Windows 终端（管理员）」**。
 
-![打开 Windows 终端](/source/img/win11setmouce/1openpowershell.png)
+![打开 Windows 终端](../../../img/win11setmouce/1openpowershell.png)
 
 ### 第二步：输入注册表命令
 
@@ -27,7 +27,7 @@ tags:
 reg.exe add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve
 ```
 
-![执行注册表命令](/source/img/win11setmouce/2comand.png)
+![执行注册表命令](../../../img/win11setmouce/2comand.png)
 
 看到「操作成功完成」的提示后，**重启电脑**即可。
 
@@ -37,9 +37,9 @@ reg.exe add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\
 
 下面是修改前（Win11 新样式）和修改后（Win10 风格）的对比：
 
-![修改前 Win11 右键菜单](/source/img/win11setmouce/3win11.png)
+![修改前 Win11 右键菜单](../../../img/win11setmouce/3win11.png)
 
-![修改后 Win10 右键菜单](/source/img/win11setmouce/4win10.png)
+![修改后 Win10 右键菜单](../../../img/win11setmouce/4win10.png)
 
 ## 如何恢复原状
 

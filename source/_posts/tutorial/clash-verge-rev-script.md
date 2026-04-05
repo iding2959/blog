@@ -1,7 +1,7 @@
 ---
 title: Clash Verge Rev 脚本实现多个指纹浏览器环境对应不同的节点
 date: 2025-07-22 19:30:00
-index_img: /source/img/tutorial/clashvert.png
+index_img: ../../../img/tutorial/clashvert.png
 categories:
   - 教程
 tags:
@@ -94,13 +94,13 @@ function main(config, profileName) {
 
 ### 新加坡节点效果
 
-![新加坡IP检测效果](/source/img/tutorial/clashverxiaoguo2.png)
+![新加坡IP检测效果](../../../img/tutorial/clashverxiaoguo2.png)
 
 可以看到，使用端口40011配置后，IP地址显示为新加坡(SG)，经纬度为103.8/1.3667。
 
 ### 香港节点效果
 
-![香港IP检测效果](/source/img/tutorial/clashverxiaoguo1.png)
+![香港IP检测效果](../../../img/tutorial/clashverxiaoguo1.png)
 
 使用端口40018配置后，IP地址显示为香港(HK)，经纬度为114.1657/22.2578。
 
