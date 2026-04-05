@@ -70,7 +70,7 @@ git config --global user.email  "youremail" // GitHub邮箱
 7. 选择 Add SSH key
 8. 页面自动跳转后，你会发现你多了一个灰色的钥匙，这是因为你从未使用过这个Key
 
-![GitHub SSH Key设置](/img/tortoisegit/hykey1.png)
+![GitHub SSH Key设置](/source/img/tortoisegit/hykey1.png)
 
 ### 验证key
 ```bash
@@ -100,7 +100,7 @@ Hi yourname! You've successfully authenticated, but GitHub does not provide shel
 
 打开小乌龟设置页面，选择Network页面。默认情况下，他选择的是Git\bin\ssh.exe，由于我们配置sshkey，所以选择GIt\usr\bin\ssh.exe 点击确定便配置完成。
 
-![TortoiseGit SSH设置](/img/tortoisegit/xwg2.png)
+![TortoiseGit SSH设置](/source/img/tortoisegit/xwg2.png)
 
 ## 结束语
 通过以上步骤，我们完成了GitHub SSH密钥的配置以及TortoiseGit的设置。这样在使用TortoiseGit进行Git操作时就可以免密码进行pull/push等操作，大大提高了开发效率。 
