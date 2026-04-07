@@ -75,9 +75,93 @@ sudo mkdir -p /mnt/models
 sudo chmod 777 /mnt/models
 ```
 
-## 3. 配置持久化挂载
+## 3. 测试手动挂载
 
-编辑 `/etc/fstab` 文件，将物理盘挂载和 JuiceFS 挂载写入。**顺序非常重要**，必须先挂载物理磁盘，再挂载 JuiceFS：
+在配置持久化之前，先用手动命令测试能否成功挂载：
+
+```bash
+# 先卸载（如果之前有挂载失败的尝试）
+sudo umount /mnt/models 2>/dev/null
+
+# 手动挂载 JuiceFS（测试用，后台运行）
+sudo juicefs mount -d \
+    --cache-dir /mnt/jfs_cache \
+    --cache-size 300000 \
+    -o allow_other \
+    redis://192.168.0.247:6380/0 \
+    /mnt/models
+```
+
+看到 `OK, xxx is ready at /mnt/models` 即表示挂载成功。
+
+## 5. 查看状态命令
+
+### 5.1 查看挂载点统计信息
+
+```bash
+juicefs stats /mnt/models
+```
+
+输出示例：
+```
+juicefs stats /mnt/models
+Usage:   juicefs stats <mountpoint>
+Flags:   --interval   1s   # 更新间隔（秒）
+         --once             # 只输出一次，不持续刷新
+```
+
+这个命令会实时显示：
+- 当前连接的客户端数量
+- 读写吞吐量
+- 缓存命中率
+- FUSE 操作统计等
+
+### 5.2 查看文件系统整体状态
+
+```bash
+sudo juicefs status redis://192.168.0.247:6380/0
+```
+
+输出示例：
+```
+juicefs status redis://192.168.0.247:6380/0
+Meta URL:         redis://192.168.0.247:6380/0
+Redis Version:    7.0.5
+JuiceFS Version:  1.1.0
+Total Inodes:     1.2M
+Total Space:      20TiB
+Used Space:      5.2TiB
+Free Space:      14.8TiB
+Used Inodes:     256K
+Total Sessions:  3
+  - 192.168.0.101:/mnt/models (192.168.0.101) [valid]
+  - 192.168.0.102:/mnt/models (192.168.0.102) [valid]
+```
+
+这个命令显示：
+- 文件系统总空间和已用空间
+- inode 数量
+- 当前连接的客户端会话
+- Redis 版本等信息
+
+## 6. （可选）设置容量配额
+
+JuiceFS 默认会显示 1PB 的总容量，如果想显示实际容量，可以设置配额：
+
+```bash
+# 设置根目录容量为 20TB（根据实际需求调整）
+sudo juicefs quota set redis://192.168.0.247:6380/0 --path / --capacity 20480
+```
+
+参数说明：
+- `--path /` - 要设置配额的路径
+- `--capacity` - 容量大小，单位为 **GiB**
+
+> 注意：这个配额只影响 `df` 命令显示的容量数值，不会限制实际可用空间。
+
+## 7. 配置持久化挂载
+
+测试成功后，将挂载配置写入 `/etc/fstab`，实现开机自动挂载：
 
 ```bash
 sudo nano /etc/fstab
@@ -89,13 +173,18 @@ sudo nano /etc/fstab
 # A. 先挂载物理缓存盘
 /dev/sdb  /mnt/jfs_cache  ext4  defaults  0  0
 
-# B. 再挂载 JuiceFS (使用独立缓存盘，限制缓存为 110G)
-redis://192.168.0.247:6380/0  /mnt/models  juicefs  _netdev,cache-dir=/mnt/jfs_cache,cache-size=112640,allow_other  0  0
+# B. 再挂载 JuiceFS (使用独立缓存盘，限制缓存为 300G)
+redis://192.168.0.247:6380/0  /mnt/models  juicefs  _netdev,cache-dir=/mnt/jfs_cache,cache-size=300000,allow_other  0  0
 ```
-### 4. 查看是否挂载成功
+
+### 8. 生效持久化配置
+
 ```bash
+sudo systemctl daemon-reload
 sudo mount -a
 ```
+
+### 9. 查看是否挂载成功
 
 ```
 safone@fk-gpu-server2:~$ sudo mount -a
@@ -109,7 +198,7 @@ mount: (hint) your fstab has been modified, but systemd still uses
 safone@fk-gpu-server2:~$
 ```
 
-### 5. 磁盘确认
+### 10. 磁盘确认
 
 ```bash
 df -h
@@ -135,6 +224,52 @@ JuiceFS:modeljfs              1.0P   33M  1.0P   1% /mnt/models
 | `cache-size` | 缓存大小（单位 MB，112640 = 110G） |
 | `allow_other` | 允许非挂载用户访问文件 |
 
+### 生产环境推荐参数
+
+以下参数经过生产环境验证，可有效提升 JuiceFS 稳定性，避免对 NFS 造成额外压力：
+
+| 参数项 | 默认值 | 推荐值 | 作用与优点 |
+|--------|--------|--------|------------|
+| **缓存大小** | 327680 (320G) | 需根据 `/dev/sdb` 实际大小调整 | 防止磁盘撑爆：确保缓存不会写满物理分区。**避免因缓存盘满导致的写入中断** |
+| **异步写入** | 同步写入 (默认) | 不建议开启 `writeback` | 数据安全：因为有项目运行，保持同步写入确保数据必须落到后端存储才返回成功。**掉电不丢数据** |
+| **挂载保障** | 无 | `_netdev` | 启动顺序：确保网络服务启动后再挂载。**防止开机时因为网络没通导致挂载失败** |
+
+> **⚠️ 注意**：fstab 中不支持 `attr-cache`、`entry-cache`、`dir-cache` 等参数。这些是 JuiceFS 命令行参数，需要在 `juicefs mount` 命令中单独指定。如果需要调整元数据缓存，请在挂载命令中使用：
+> ```bash
+> juicefs mount <meta-url> /mnt/models --attrcacheto=60 --entrycacheto=60 --direntrycacheto=60 --update-fstab
+> ```
+
+> **注意**：如果你有其他 NFS 或 SMB 共享服务与 JuiceFS 共存，合理的缓存大小和同步写入模式尤为重要。
+
+### 可选：开启 writeback 异步写入模式
+
+如果你对写入性能有极致要求，且可以容忍极小概率的数据丢失（如临时缓存目录），可以开启 `writeback` 模式：
+
+```text
+# 确保本地缓存盘先挂载
+/dev/sdb  /mnt/jfs_cache  ext4  defaults  0  0
+
+# 开启了 writeback 的 JuiceFS 挂载
+redis://192.168.0.247:6380/0  /mnt/models  juicefs  _netdev,cache-dir=/mnt/jfs_cache,cache-size=300000,writeback,allow_other  0  0
+```
+
+> **⚠️ 风险提示**：开启 `writeback` 后，数据会先写入本地缓存盘，然后异步同步到后端存储。**在断电、异常关机或 JuiceFS 崩溃时，已写入缓存但未同步的数据可能丢失**。请确保缓存盘上的数据可接受丢失，或用于纯缓存场景。
+
+> **注意**：如果你有其他 NFS 或 SMB 共享服务与 JuiceFS 共存，元数据缓存尤为重要——它可以显著减少对 Redis 的请求频率，避免因高频元数据操作影响其他服务的性能。
+
+### 完整配置示例
+
+```text
+/dev/sdb  /mnt/jfs_cache  ext4  defaults  0  0
+redis://192.168.0.247:6380/0  /mnt/models  juicefs  _netdev,cache-dir=/mnt/jfs_cache,cache-size=300000,allow_other  0  0
+```
+
+配置完成后执行：
+```bash
+sudo systemctl daemon-reload
+sudo mount -a
+```
+
 
 
 预期结果：同时看到 `/mnt/jfs_cache` 和 `/mnt/models`。
@@ -155,7 +290,7 @@ touch /mnt/models/test.txt
 
 预期结果：普通用户可以成功创建文件。
 
-## 5. 常见问题
+## 11. 常见问题
 
 ### Q: mount -a 没有反应，但也没有报错？
 
