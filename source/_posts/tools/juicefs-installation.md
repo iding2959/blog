@@ -1,6 +1,6 @@
 ---
-title: Ubuntu 安装配置 JuiceFS 分布式文件系统
-date: 2026-04-07 10:00:00
+title: Ubuntu 挂载 JuiceFS 分布式文件系统
+date: 2026-03-07 10:00:00
 categories:
   - 工具
   - Linux
