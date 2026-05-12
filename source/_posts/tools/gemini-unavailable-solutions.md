@@ -34,7 +34,7 @@ Gemini 目前并非在所有国家和地区都可用。可以查询 [Gemini 支�
 
 ### 操作步骤
 
-1. 打开 Gemini，点击左侧菜单中的 **["创建你的 Gem"](https://gemini.google.com/gems/create?hl=en-US,li3)**
+1. 打开 Gemini，点击左侧菜单中的 **["创建你的 Gem"](https://gemini.google.com/gems/create?hl=zh,li3)**
 2. 填写以下信息：
 
 | 字段 | 内容 |
