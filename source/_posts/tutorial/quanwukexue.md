@@ -6,7 +6,8 @@ categories:
   - 代理
 tags:
   - Clash
-  - 代理，路由器
+  - 代理
+  - 路由器
   - 科学上网
 ---
 
