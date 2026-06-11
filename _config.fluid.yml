@@ -21,9 +21,9 @@ menu:
     icon: iconfont icon-category-fill
     submenu:
       工具: /categories/工具/
+      教程: /categories/教程/
       前端: /categories/前端/
       后端: /categories/后端/
-      教程: /categories/教程/
       其他: /categories/其他/
   标签:
     path: /tags/

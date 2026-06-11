@@ -1,7 +1,7 @@
 ---
 title: Conda基础命令指南
 date: 2025-05-31 14:30:00
-description: 以下命令均在Windows命令行中输入。一般来讲，无论是在Linux，OS X还是在Windows系统中，在命令行窗口中输入的conda命令基本是一致的，除非有特别标注。
+description: 以下命令均在Windows命令行中输入。一般来讲，无论是在Linux，MAC OS还是在Windows系统中，在命令行窗口中输入的conda命令基本是一致的，除非有特别标注。
 keywords: Conda, Python环境管理, Anaconda, Miniconda
 categories:
   - 工具
