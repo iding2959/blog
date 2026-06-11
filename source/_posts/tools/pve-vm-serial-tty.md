@@ -1,6 +1,8 @@
 ---
 title: 开启 PVE 虚拟机的 Serial TTY 实现无头服务器连接
 date: 2026-02-18 17:00
+description: 首先编辑 GRUB 配置，为内核添加串口参数：
+keywords: Proxmox VE, PVE, 虚拟化, Linux
 categories:
   - 工具
   - PVE

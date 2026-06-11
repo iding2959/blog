@@ -1,6 +1,8 @@
 ---
 title: Clash Verge Rev 脚本实现多个指纹浏览器环境对应不同的节点
 date: 2025-07-22 19:30:00
+description: 使用指纹浏览器可以同时注册登录多个账号，但是多个账号使用同一个IP地址可能会出现风控问题，所以我们需要为每个浏览器用户配置不同的代理IP。通过Clash Verge Rev的脚本功能，我们可以轻松实现这一需求。
+keywords: Clash Verge Rev, 代理, 脚本配置
 index_img: ../../../img/tutorial/clashvert.png
 categories:
   - 教程

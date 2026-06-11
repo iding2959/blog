@@ -1,6 +1,8 @@
 ---
 title: PostgreSQL 开启 SSL（Docker 环境完整实践记录）
 date: 2026-05-11 15:00:00
+description: 在使用 Docker 部署 PostgreSQL 时，为了提升数据传输安全性，我们需要为数据库连接开启 SSL/TLS 加密。
+keywords: PostgreSQL, SSL, Docker, 数据库安全
 categories:
   - 工具
   - PostgreSQL

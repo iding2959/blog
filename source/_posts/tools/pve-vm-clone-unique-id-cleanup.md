@@ -1,6 +1,8 @@
 ---
 title: PVE 虚拟机克隆后清理唯一标识符指南
 date: 2026-02-15 14:00
+description: 大多数现代 Linux 发行版（Ubuntu, CentOS, Debian）使用 `/etc/machine-id` 来识别系统。这是 K8s 和许多服务最常参考的唯一 ID。在克隆出的新机器上执行：
+keywords: Proxmox VE, PVE, 虚拟化, Linux
 categories:
   - 工具
   - PVE

@@ -1,6 +1,8 @@
 ---
 title: Nix 在 WSL2 中的安装
 date: 2026-04-10 10:00:00
+description: 之前在 WSL2 中安装 Nix 需要打补丁、处理各种兼容性问题，社区也长期讨论 WSL2 支持。现在好消息来了：**新版本的 Nix 安装脚本在 WSL2 上和 Linux 完全一致，无需额外处理**。
+keywords: Nix, WSL2, Linux, 包管理器
 categories:
   - 工具
 tags:

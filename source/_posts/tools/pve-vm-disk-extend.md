@@ -1,6 +1,8 @@
 ---
 title: PVE 虚拟机 Linux 系统盘扩容指南（ext4+LVM）
 date: 2026-02-21 09:00:00
+description: 在扩容之前，先了解当前磁盘的层次结构：
+keywords: Proxmox VE, PVE, 虚拟化, Linux
 categories:
   - 工具
   - PVE

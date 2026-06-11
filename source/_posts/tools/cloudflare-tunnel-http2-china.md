@@ -1,6 +1,8 @@
 ---
 title: Cloudflare Tunnel 国内优化指南：强制使用 HTTP/2 解决 QUIC 连接问题
 date: 2026-05-19 14:00:00
+description: 在使用 Cloudflare Tunnel（cloudflared）进行内网穿透时，国内用户经常会遇到连接不稳定、延迟极高甚至完全无法访问的问题。这背后的根本原因是：
+keywords: Cloudflare, Cloudflare Tunnel, 网络优化
 categories:
   - 工具
   - 网络

@@ -1,6 +1,8 @@
 ---
 title: PVE 使用 ifplugd 实现随身 WiFi 断线自动重连
 date: 2026-06-01 10:00:00
+description: 当你使用随身 WiFi 为 Proxmox VE (PVE) 提供网络连接时，可能会遇到一个恼人的问题：每次随身 WiFi 重启后，PVE 的网卡就会"假死"，无法自动恢复网络连接。即使随身 WiFi 已经重新启动并正常工作，PVE 仍然需
+keywords: Proxmox VE, PVE, 虚拟化, Linux
 categories:
   - 工具
   - PVE

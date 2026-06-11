@@ -1,6 +1,8 @@
 ---
 title: UV：极速Python包管理器安装配置教程
 date: 2025-07-07 00:00:00
+description: UV是由Astral公司开发的现代Python包管理器，使用Rust编写，速度比pip快10-100倍。它可以替代pip、pip-tools、pipx、poetry、pyenv等多个工具，提供统一的Python项目管理体验。
+keywords: uv, Python, 包管理器, Docker
 categories:
   - 工具
   - Python

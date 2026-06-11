@@ -1,6 +1,8 @@
 ---
 title: Miniconda 完整安装指南：Windows、macOS 与 Linux
 date: 2025-11-21 20:00:00
+description: Miniconda 是 Anaconda 发行版的精简版本，仅包含 conda、Python 及其依赖项，是一个轻量级的 Python 环境管理工具。
+keywords: Conda, Python环境管理, Anaconda, Miniconda
 categories:
   - 工具
   - Python

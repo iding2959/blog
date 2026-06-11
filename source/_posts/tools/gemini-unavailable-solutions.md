@@ -1,6 +1,8 @@
 ---
 title: Gemini 不可用的解决方法
 date: 2026-04-30 10:00:00
+description: ### 1. 年龄限制
+keywords: Gemini, Google AI, API, 代理配置
 categories:
   - 工具
 tags:

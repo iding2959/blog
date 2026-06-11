@@ -1,6 +1,8 @@
 ---
 title: uv 安装指南 - 极速 Python 包管理工具
 date: 2025-11-07 16:45:00
+description: uv 是由 Astral 开发的新一代 Python 包管理工具，以其极快的速度和简洁的设计理念受到开发者的青睐。本文将介绍如何在不同平台上安装 uv。
+keywords: uv, Python, 包管理器, Docker
 categories:
   - 工具
   - Python

@@ -1,6 +1,8 @@
 ---
 title: 小乌龟的配置 github SSHkey
 date: 2025-07-10 19:00:00
+description: 在配置新的开发环境时，git的配置必不可少，配置SSHkey能让我们免密进行pull/push等操作，由于个人习惯使用可视化的界面，小乌龟(git版)是可视化界面的不二之选。
+keywords: 小乌龟的配置, github, SSHkey
 tags:
   - Git
   - GitHub

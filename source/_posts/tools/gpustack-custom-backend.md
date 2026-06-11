@@ -1,6 +1,8 @@
 ---
 title: GPUStack 添加自定义 vLLM / SGLang 版本教程
 date: 2026-04-07 15:30:00
+description: GPUStack 支持可插拔的推理引擎架构，允许自定义推理后端及其版本，用于引入 GPUStack 未内置的 vLLM / SGLang / MindIE 版本，或接入其他自定义推理引擎镜像。
+keywords: GPUStack, GPU管理, AI推理, vLLM, Transformers
 categories:
   - 工具
   - AI

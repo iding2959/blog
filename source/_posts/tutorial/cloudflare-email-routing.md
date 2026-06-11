@@ -1,7 +1,9 @@
 ---
 title: Cloudflare邮件分类转发多个地址
 date: 2025-06-1 12:00:00
-tags: 
+description: ### 1.1 进入域名下的「电子邮件路由」
+keywords: Cloudflare, Cloudflare Tunnel, 网络优化
+tags:
   - Cloudflare
   - 电子邮箱
 categories: 教程
