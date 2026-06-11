@@ -41,7 +41,13 @@ tags:
 
 **核心逻辑：网络断开时，什么都不做，确保 PVE 本地管理网络绝对不死；网络恢复时，强制刷新/拉起 vmbr0。**
 
-### 第一步：配置 ifplugd 盯紧物理网卡
+### 第一步：安装 ifplugd
+
+```bash
+apt update && apt install -y ifplugd
+```
+
+### 第二步：配置 ifplugd 盯紧物理网卡
 
 打开 `ifplugd` 默认配置文件：
 
@@ -54,13 +60,13 @@ nano /etc/default/ifplugd
 ```plaintext
 INTERFACES="enx889e966aed98"
 HOTPLUG_INTERFACES="enx889e966aed98"
-ARGS="-q -f -u0 -d5 -w"
+ARGS="-q -f -u0 -d1 -w"
 SUSPEND_ACTION="stop"
 ```
 
-> **注意：** 务必去掉参数中的 `-I`，否则在 PVE (Debian) 环境下可能导致脚本不被调用；同时将 `-d10` 改为 `-d5`，缩短响应判定时间。
+> **注意：** 务必去掉参数中的 `-I`，否则在 PVE (Debian) 环境下可能导致脚本不被调用；`-d1` 设置为 1 秒即可快速检测断开，但实际恢复由脚本中的 25 秒等待保证随身 WiFi 内部系统完全就绪。
 
-### 第二步：编写安全联动脚本
+### 第三步：编写安全联动脚本
 
 打开 `ifplugd` 的动作触发脚本：
 
@@ -83,6 +89,11 @@ VM_ID="100"
 if [ "$INTERFACE" = "enx889e966aed98" ]; then
     case "$ACTION" in
         up)
+            # ─── ⚡ 终极时间差补丁 ───
+            # 随身WiFi刚亮灯/发出UP信号时，系统还没开完机。
+            # 我们在这里强行让 PVE 死等 25 秒钟，等随身WiFi内部彻底初始化完毕！
+            echo "[ifplugd] 随身WiFi硬件已亮灯，死等 25 秒让其内部系统彻底开机..."
+            sleep 25
             echo "[ifplugd] 随身WiFi物理链路已就绪，开始执行修复逻辑..."
             # 1. 强制刷新网桥状态
             ifup --force vmbr0 || true
@@ -108,7 +119,7 @@ fi
 chmod +x /etc/ifplugd/ifplugd.action
 ```
 
-### 第三步：重启服务使配置生效
+### 第四步：重启服务使配置生效
 
 ```bash
 systemctl restart ifplugd
