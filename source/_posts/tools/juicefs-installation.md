@@ -1,6 +1,8 @@
 ---
 title: Ubuntu 挂载 JuiceFS 分布式文件系统
 date: 2026-03-07 10:00:00
+description: 详细介绍在 Ubuntu 上安装配置 JuiceFS 分布式文件系统的完整流程，包括对象存储和 Redis 的配置方法
+keywords: JuiceFS, Ubuntu, 分布式文件系统, 对象存储, Redis, S3, 文件挂载
 categories:
   - 工具
   - Linux
