@@ -77,19 +77,25 @@ set -e
 INTERFACE=$1
 ACTION=$2
 
-# 当随身 WiFi 物理网卡状态变化时
+# ⚠️ 请在这里定义你 OpenWrt 虚拟机的实际 ID
+VM_ID="100"
+
 if [ "$INTERFACE" = "enx889e966aed98" ]; then
     case "$ACTION" in
         up)
-            echo "[ifplugd] 随身WiFi物理链路已就绪，正在尝试激活/刷新 vmbr0..."
-            # 只管拉起，不管关闭！即使多次触发也只是刷新，绝不会导致PVE断网
+            echo "[ifplugd] 随身WiFi物理链路已就绪，开始执行修复逻辑..."
+            # 1. 强制刷新网桥状态
             ifup --force vmbr0 || true
-            # 针对 PVE8 / ifupdown2 的特殊网络地址刷新命令
             ifup --ifaddrs vmbr0 || true
-            echo "[ifplugd] vmbr0 刷新完成，网络已恢复！"
+            # 2. 确保物理网卡处于 UP 和混杂模式
+            ip link set dev enx889e966aed98 up
+            ip link set dev enx889e966aed98 promisc on
+            # 3. 【核心补丁】热刷新 OpenWrt 虚拟机的网卡，彻底解决虚拟机孤岛问题
+            echo "[ifplugd] 正在激活 OpenWrt (ID: $VM_ID) 的虚拟网卡通道..."
+            qm set $VM_ID --net0 virtio,bridge=vmbr0 || true
+            echo "[ifplugd] 所有网络通道已全部疏通！"
             ;;
         down)
-            # 安全核心：断开时什么都不做，保持 vmbr0 状态以防 PVE 失联
             echo "[ifplugd] 随身WiFi暂时断开，保持 vmbr0 状态以防失联..."
             ;;
     esac
