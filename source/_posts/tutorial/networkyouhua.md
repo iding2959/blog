@@ -1,8 +1,8 @@
 ---
 title: Ubuntu 软路由 / 网关代理性能优化实战（Clash / mihomo）
 date: 2025-12-17 15:10:00
-description: 在使用 Ubuntu Server + Clash(mihomo) 作为网关代理时，遇到以下问题：
-keywords: Clash Verge Rev, 代理, 脚本配置
+description: 网络优化实用技巧：DNS 配置、TCP 参数调优、CDN 加速、延迟优化。
+keywords: 网络优化, DNS, TCP, CDN, 延迟优化, 性能调优
 tags:
   - Linux
   - 软路由

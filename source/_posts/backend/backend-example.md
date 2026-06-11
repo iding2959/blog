@@ -1,6 +1,8 @@
 ---
 title: 后端开发基础
 date: 2025-05-01 14:30:00
+description: 后端开发示例文章：API 设计、数据库优化、微服务架构实践。
+keywords: 后端开发, API, 数据库, 微服务, 架构设计
 categories: 后端
 tags:
   - Node.js

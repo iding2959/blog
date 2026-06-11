@@ -1,6 +1,8 @@
 ---
 title: Hello World
 date: 2025-04-01 12:00:00
+description: Hexo 博客 Hello World 示例文章：Markdown 语法、文章结构、快速开始指南。
+keywords: Hexo, Markdown, 博客, Hello World, 快速开始
 categories: 前端
 tags:
   - 入门

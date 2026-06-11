@@ -1,8 +1,8 @@
 ---
 title: Ubuntu + Clash Verge 打造全屋科学上网网关（超详细实战教程）
 date: 2025-12-07 14:30:00
-description: - 操作系统：Ubuntu Server / Desktop
-keywords: Clash Verge Rev, 代理, 脚本配置
+description: 科学上网配置指南：代理协议选择、客户端配置、规则优化、故障排查。
+keywords: 科学上网, 代理, VPN, 网络工具, 翻墙, 代理协议
 categories:
   - 教程
   - 代理

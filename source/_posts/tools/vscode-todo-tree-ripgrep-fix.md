@@ -1,8 +1,8 @@
 ---
 title: VS Code Todo Tree 插件无法运行（ripgrep 未找到）的修复方法
 date: 2026-05-27 16:30:00
-description: - 按下 `Ctrl+Shift+P` 搜不到 `Todo Tree: Refresh` 命令
-keywords: VS, Code, Todo, Tree, 插件无法运行, ripgrep
+description: 解决 VSCode TODO Tree 插件 ripgrep 错误：路径配置、权限修复、性能优化。
+keywords: VSCode, TODO Tree, ripgrep, 插件配置, 错误修复
 categories:
   - 工具
 tags:

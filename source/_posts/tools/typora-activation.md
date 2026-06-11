@@ -1,8 +1,8 @@
 ---
 title: Typora1.9.5的下载与激活
 date: 2025-06-01 10:30:00
-description: Typora从免费版本到收费版，对于囊中羞涩的学生党不方便使用。并且购买的收费版也只是只能购买一个大版本，不能永久一次性购买，这一点确实有点不够良心。所以在没有经济独立的学生党可以使用一下该版本的Typora激活，但是希望有条件支持正版的工
-keywords: Typora, Markdown编辑器
+description: Typora Markdown 编辑器激活教程：许可证配置、主题安装、使用技巧。
+keywords: Typora, Markdown, 编辑器, 激活, 主题
 categories:
   - 工具
   - 编辑器

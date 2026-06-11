@@ -1,8 +1,8 @@
 ---
 title: NVIDIA CUDA安装教程 - GPU深度学习环境配置指南
 date: 2025-06-02 13:30:00
-description: 在安装CUDA之前，我们需要先确认您的NVIDIA显卡支持哪个版本的CUDA。
-keywords: CUDA, NVIDIA, GPU, Ubuntu
+description: NVIDIA CUDA Toolkit 完整安装教程：驱动配置、环境变量、cuDNN 集成、验证测试。
+keywords: CUDA, NVIDIA, GPU, 深度学习, 驱动安装, cuDNN
 tags:
   - CUDA
   - NVIDIA

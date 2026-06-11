@@ -1,8 +1,8 @@
 ---
 title: Gemini 不可用的解决方法
 date: 2026-04-30 10:00:00
-description: ### 1. 年龄限制
-keywords: Gemini, Google AI, API, 代理配置
+description: 解决 Google Gemini API 在国内无法访问问题的多种方案：Cloudflare Workers 反向代理、第三方中转服务等。
+keywords: Gemini, Google AI, API代理, Cloudflare Workers, 反向代理
 categories:
   - 工具
 tags:

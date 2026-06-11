@@ -1,8 +1,8 @@
 ---
 title: NVM详细安装使用教程
 date: 2025-06-01 10:00:00
-description: NVM是一个Node.js的版本管理工具。通过它可以安装和切换不同版本的Node.js，解决各种版本存在不兼容现象的问题。
-keywords: NVM, Node.js, 版本管理, Linux
+description: NVM (Node Version Manager) 安装使用指南：多版本 Node.js 管理、版本切换、项目配置。
+keywords: NVM, Node.js, 版本管理, nvm-windows, npm
 categories:
   - 工具
   - 前端

@@ -1,8 +1,8 @@
 ---
 title: YOLOv8实现手写数字识别系统：从MNIST到实时摄像头检测
 date: 2025-06-02 14:00:00
-description: 这个项目结合了传统的MNIST数据集和现代的目标检测算法YOLOv8，实现了以下功能：
-keywords: YOLOv8, MNIST, 目标检测, 深度学习
+description: 使用 YOLOv8 实现 MNIST 手写数字识别：数据集转换、模型训练、实时摄像头检测。
+keywords: YOLOv8, MNIST, 目标检测, 深度学习, 计算机视觉, 手写识别
 tags:
   - YOLOv8
   - MNIST

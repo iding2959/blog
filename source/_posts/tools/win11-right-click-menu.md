@@ -1,8 +1,8 @@
 ---
 title: Win11 右键菜单恢复 Win10 风格
 date: 2026-01-03 13:00:00
-description: ### 第一步：打开管理员终端
-keywords: Windows 11, 右键菜单, 系统优化
+description: 恢复 Windows 11 经典右键菜单：注册表修改、工具推荐、自定义配置。
+keywords: Windows 11, 右键菜单, 注册表, 系统优化, UI定制
 categories:
   - 工具
   - Windows

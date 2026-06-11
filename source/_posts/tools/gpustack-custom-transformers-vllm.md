@@ -1,8 +1,8 @@
 ---
 title: GPUStack 使用 Docker Compose 自定义 vLLM 镜像升级 Transformers
 date: 2026-04-17 15:00:00
-description: 在实际生产环境中，GPUStack 内置的 vLLM 版本可能无法及时适配最新的模型。例如某些新模型需要 `transformers 5.5.0` 以上版本以及 `vllm[audio]` 依赖，而官方镜像尚未包含这些依赖。
-keywords: GPUStack, GPU管理, AI推理, vLLM, Transformers
+description: 在 GPUStack 中添加自定义 Transformers 和 vLLM 版本，解决模型兼容性问题，支持最新模型部署。
+keywords: GPUStack, Transformers, vLLM, 模型部署, 推理引擎, Docker
 categories:
   - 工具
   - Docker

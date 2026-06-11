@@ -1,8 +1,8 @@
 ---
 title: 使用 uv 优化 Docker 镜像构建
 date: 2026-02-01 15:00:00
-description: 在 Python 项目中，使用 uv 作为包管理工具可以显著提升依赖安装速度。本文介绍如何用 uv 优化 Docker 镜像构建，实现更好的缓存命中和更小的镜像体积。
-keywords: uv, Python, 包管理器, Docker
+description: 在 Docker 容器中使用 uv 构建高效 Python 镜像：多阶段构建、依赖缓存优化。
+keywords: uv, Docker, Python, 包管理, 容器化, 镜像优化
 categories:
   - 工具
   - Docker

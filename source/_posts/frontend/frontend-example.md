@@ -1,6 +1,8 @@
 ---
 title: 前端开发入门
 date: 2025-05-01 10:00:00
+description: 前端开发示例文章：React 组件设计、状态管理、性能优化技巧。
+keywords: 前端开发, React, JavaScript, 性能优化, 组件设计
 categories: 前端
 tags:
   - JavaScript

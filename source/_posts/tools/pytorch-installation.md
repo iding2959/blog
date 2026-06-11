@@ -1,8 +1,8 @@
 ---
 title: PyTorch 三件套版本对应关系与安装指南
 date: 2025-11-17 18:00:00
-description: PyTorch 生态系统主要由三个核心库组成：`torch`（核心库）、`torchvision`（计算机视觉）和 `torchaudio`（音频处理）。正确安装匹配的版本对于项目的稳定运行至关重要。
-keywords: PyTorch, CUDA, GPU, 深度学习
+description: PyTorch 深度学习框架安装指南：CUDA 版本选择、环境配置、验证测试。
+keywords: PyTorch, 深度学习, CUDA, GPU, Python, 机器学习
 categories:
   - 工具
   - 深度学习
