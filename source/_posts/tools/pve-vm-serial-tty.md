@@ -3,6 +3,7 @@ title: 开启 PVE 虚拟机的 Serial TTY 实现无头服务器连接
 date: 2026-02-18 17:00
 categories:
   - 工具
+  - PVE
 tags: [PVE, Proxmox, 虚拟机, Serial Console, 运维]
 ---
 

@@ -3,6 +3,7 @@ title: PVE 虚拟机克隆后清理唯一标识符指南
 date: 2026-02-15 14:00
 categories:
   - 工具
+  - PVE
 tags: [PVE, Proxmox, 虚拟机, K8s, 运维]
 ---
 

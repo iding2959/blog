@@ -3,6 +3,7 @@ title: PVE 虚拟机 Linux 系统盘扩容指南（ext4+LVM）
 date: 2026-02-21 09:00:00
 categories:
   - 工具
+  - PVE
 tags:
   - PVE
   - Proxmox
