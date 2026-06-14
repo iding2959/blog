@@ -4,7 +4,7 @@ This file provides guidance to Claude Code when working with this repository.
 
 ## 项目概述
 
-基于 **Hexo 7.3.0** + **Fluid 1.9.8** 主题的个人技术博客，部署至 `blog.iding.qzz.io`。
+基于 **Hexo 7.3.0** + **Fluid 1.9.8** 主题的个人技术博客，部署至 `blog.952405.xyz`。
 
 ## 常用命令
 
