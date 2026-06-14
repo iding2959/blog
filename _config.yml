@@ -102,8 +102,8 @@ theme: fluid
 sitemap:
   path: sitemap.xml
   rel: false
-  tags: true
-  categories: true
+  tags: false
+  categories: false
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
