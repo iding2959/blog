@@ -92,7 +92,7 @@ cat ~/.git-credentials
 3. 填写 Note（备注名），勾选 `repo` scope（完整控制私有仓库）
 4. 点击生成，**立即复制 Token**（离开页面后无法再次查看）
 
-![GitHub PAT 创建页面](../../../img/git-pat/github-pat.png)
+![GitHub PAT 创建页面](../../../img/tools/creategithubtoken.png)
 
 **Gitea：**
 
