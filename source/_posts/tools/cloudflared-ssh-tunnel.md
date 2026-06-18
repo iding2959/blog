@@ -81,6 +81,13 @@ Host giteassh.cq.de5.net
     User git
     IdentityFile ~/.ssh/fzno1
     IdentitiesOnly yes
+    # 保持长连接，每 10 秒发送心跳包，连续 3 次无回应才断开
+    ServerAliveInterval 10
+    ServerAliveCountMax 3
+    # 强制使用轻量级加密算法，降低 CPU 占用
+    Ciphers chacha20-poly1305@openssh.com
+    # 允许更高的数据吞吐
+    IPQoS throughput
     ProxyCommand /home/iding/bin/cloudflared access tcp --hostname %h
 ```
 
@@ -94,12 +101,19 @@ Host giteassh.cq.de5.net
 | `IdentityFile` | 指定私钥文件路径 |
 | `IdentitiesOnly yes` | 仅使用指定的私钥，不尝试其他密钥（避免 `Too many authentication failures`） |
 | `ProxyCommand` | 将 SSH 流量通过 cloudflared 转发，`%h` 自动替换为 HostName |
+| `ServerAliveInterval 10` | 每 10 秒发送一个心跳包，防止长连接被防火墙或 NAT 设备断开 |
+| `ServerAliveCountMax 3` | 连续 3 次心跳无响应才判定断线，避免网络抖动导致误断 |
+| `Ciphers` | 指定加密算法，`chacha20-poly1305` 比默认 AES 更省 CPU，适合低配机器 |
+| `IPQoS throughput` | 标记 SSH 流量为高吞吐类型，减少路由设备的 QoS 限速 |
 
 **关键点**：
 
 - `ProxyCommand` 中的 `--hostname %h`，`%h` 是 SSH 的内置变量，会自动展开为 `HostName` 字段的值。这样当你修改 `HostName` 时，无需同步修改 `ProxyCommand`。
 - cloudflared 二进制路径建议使用绝对路径，避免 `PATH` 查找问题。
 - `IdentitiesOnly yes` 很重要——如果本地有多个 SSH 密钥，不开启此选项可能会一次性尝试所有密钥，导致目标服务器返回 `Too many authentication failures`。
+- `ServerAliveInterval` + `ServerAliveCountMax` 组合确保连接稳定性，尤其适合经过 cloudflared 隧道这种中间有 NAT/防火墙的场景。
+- `Ciphers chacha20-poly1305` 在无 AES-NI 指令集的 CPU（如某些 ARM 或老旧 x86）上性能远优于默认的 AES-GCM，能显著降低加密开销。
+- `IPQoS throughput` 告诉底层网络将此连接的 DSCP 标记为高吞吐类型，部分路由器会给予更高的带宽优先级。
 
 ### 验证连接
 
