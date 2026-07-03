@@ -8,6 +8,7 @@ tags:
   - Clash
   - mihomo
   - Proxy
+  - Ubuntu
 categories: 网络与代理
 ---
 

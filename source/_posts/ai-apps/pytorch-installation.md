@@ -6,6 +6,9 @@ keywords: PyTorch, 深度学习, CUDA, GPU, Python, 机器学习
 categories: AI 应用
 tags:
   - PyTorch
+  - Python
+  - CUDA
+  - GPU
 ---
 
 ## PyTorch 三件套 - torch、torchvision、torchaudio

@@ -5,6 +5,7 @@ description: Cloudflare Email Routing 免费邮件转发配置：域名邮箱、
 keywords: Cloudflare, 邮件转发, Email Routing, DNS, 域名邮箱
 tags:
   - Cloudflare
+  - DNS
 categories: 网络与代理
 ---
 

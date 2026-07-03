@@ -7,6 +7,8 @@ tags:
   - YOLOv8
   - MNIST
   - CV
+  - Python
+  - PyTorch
 categories: AI 应用
 ---
 

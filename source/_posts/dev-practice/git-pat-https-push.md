@@ -7,6 +7,7 @@ categories: 开发实践
 tags:
   - Git
   - PAT
+  - GitHub
 ---
 
 ## 使用 PAT 进行 Git 免密推送

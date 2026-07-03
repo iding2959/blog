@@ -9,6 +9,7 @@ tags:
   - vLLM
   - Docker Compose
   - LLM
+  - GPU
 ---
 
 ## 概述

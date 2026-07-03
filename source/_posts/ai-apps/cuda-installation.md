@@ -7,6 +7,7 @@ tags:
   - CUDA
   - NVIDIA
   - PyTorch
+  - GPU
 categories: AI 应用
 ---
 

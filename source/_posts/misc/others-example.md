@@ -3,6 +3,7 @@ title: 程序员生活杂谈
 date: 2025-05-01 20:15:00
 categories: 杂谈
 tags:
+  - Career
 ---
 
 ## 程序员的日常生活

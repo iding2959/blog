@@ -7,6 +7,7 @@ categories: 网络与代理
 tags:
   - Clash
   - Proxy
+  - Ubuntu
 ---
 
 # Ubuntu + Clash Verge 打造全屋科学上网网关（完整实战记录）

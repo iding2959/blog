@@ -7,6 +7,7 @@ categories: 基础设施
 tags:
   - PVE
   - Serial Console
+  - Linux
 ---
 
 在管理无头（Headless）服务器或虚拟机时，没有图形界面，SSH 虽然常用，但有时候内核崩溃或网络配置出错后 SSH 就连不上了。这时候 Serial Console（串口控制台）就派上用场了——它直接通过串口与虚拟机通信，不依赖网络，只要串口通了就能进入系统。

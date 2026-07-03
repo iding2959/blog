@@ -81,8 +81,10 @@ tags:
 | 标签 | 使用场景 |
 |------|---------|
 | `AI` | AI 相关综合 |
+| `Algorithm` | 数据结构与算法 |
 | `API` | API 设计与开发 |
 | `Anaconda` | Anaconda 发行版 |
+| `Career` | 职业规划相关 |
 | `Cloudflare` | Cloudflare 平台相关 |
 | `Cloudflare Tunnel` | Cloudflare Tunnel 内网穿透 |
 | `Clash` | Clash 代理客户端 |
@@ -92,6 +94,7 @@ tags:
 | `CV` | 计算机视觉 (Computer Vision) |
 | `Database` | 数据库相关 |
 | `DevOps` | DevOps 实践 |
+| `DNS` | DNS 域名解析 |
 | `Docker` | Docker 容器 |
 | `Docker Compose` | Docker Compose 编排 |
 | `Docker Swarm` | Docker Swarm 集群 |
@@ -139,6 +142,7 @@ tags:
 | `Todo Tree` | VS Code Todo Tree 插件 |
 | `TortoiseGit` | TortoiseGit 客户端 |
 | `Typora` | Typora 编辑器 |
+| `Ubuntu` | Ubuntu 系统 |
 | `uv` | uv 包管理器 |
 | `vLLM` | vLLM 推理引擎 |
 | `VS Code` | VS Code 编辑器 |

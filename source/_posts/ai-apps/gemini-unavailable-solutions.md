@@ -7,6 +7,8 @@ categories: AI 应用
 tags:
   - Gemini
   - AI
+  - Cloudflare
+  - Proxy
 ---
 
 在使用 Gemini 时可能会遇到以下提示：

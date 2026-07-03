@@ -7,6 +7,7 @@ categories: 基础设施
 tags:
   - Nix
   - WSL2
+  - Linux
 ---
 
 ## Nix 在 WSL2 中的安装
