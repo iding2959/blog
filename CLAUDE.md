@@ -11,12 +11,12 @@ This file provides guidance to Claude Code when working with this repository.
 ```bash
 npm run server   # 本地预览 http://localhost:4000
 npm run build    # 生成静态文件到 public/
-npm run clean    # 清除缓存和生成文件
+npm run clean    # 清除缓存和已生成文件（含数据库，改了脚本/hook 后需先 clean 再 build）
 ```
 
 ## 文章管理
 
-- 文章存放：`source/_posts/` 下按子目录分类（backend/frontend/tools/tutorial/others）
+- 文章存放：`source/_posts/` 下按子目录分类（ai-apps/infrastructure/network-proxy/dev-practice/tools-efficiency/misc）
 - 永久链接格式：`:year/:month/:title/`（由 `scripts/subdirectory_posts.js` 自动移除子目录）
 - 新建文章：`hexo new [layout] <title>` 或在子目录下新建 `hexo new <subdir/title>`
 - 文章模板：`scaffolds/post.md`（包含 SEO 字段）
@@ -71,9 +71,98 @@ tags:
 - **description**：用于搜索结果摘要和 meta 标签
 - **keywords**：4-6个关键词，逗号分隔
 
+## 标签规范
+
+- **强制使用英文标签**，❌ 禁止中文标签
+- 只能从以下标签池中选择，不允许随意新建：
+
+### 可用标签
+
+| 标签 | 使用场景 |
+|------|---------|
+| `AI` | AI 相关综合 |
+| `API` | API 设计与开发 |
+| `Anaconda` | Anaconda 发行版 |
+| `Cloudflare` | Cloudflare 平台相关 |
+| `Cloudflare Tunnel` | Cloudflare Tunnel 内网穿透 |
+| `Clash` | Clash 代理客户端 |
+| `Conda` | Conda 包/环境管理 |
+| `CSS` | CSS 样式 |
+| `CUDA` | NVIDIA CUDA 工具包 |
+| `CV` | 计算机视觉 (Computer Vision) |
+| `Database` | 数据库相关 |
+| `DevOps` | DevOps 实践 |
+| `Docker` | Docker 容器 |
+| `Docker Compose` | Docker Compose 编排 |
+| `Docker Swarm` | Docker Swarm 集群 |
+| `ext4` | ext4 文件系统 |
+| `Gemini` | Google Gemini |
+| `Git` | Git 版本控制 |
+| `GitHub` | GitHub 平台 |
+| `GPU` | GPU 硬件相关 |
+| `GPUStack` | GPUStack 推理平台 |
+| `Hexo` | Hexo 博客框架 |
+| `Homelab` | 家庭实验室 |
+| `HTML` | HTML |
+| `HTTP/2` | HTTP/2 协议 |
+| `IDE` | IDE 编辑器 |
+| `ifplugd` | ifplugd 网卡检测 |
+| `JavaScript` | JavaScript |
+| `JuiceFS` | JuiceFS 分布式文件系统 |
+| `K8s` | Kubernetes |
+| `Linux` | Linux 系统 |
+| `LLM` | 大语言模型推理 |
+| `LVM` | LVM 逻辑卷管理 |
+| `Markdown` | Markdown 标记语言 |
+| `Miniconda` | Miniconda 发行版 |
+| `MNIST` | MNIST 数据集 |
+| `mihomo` | mihomo 内核 |
+| `Navicat` | Navicat 数据库客户端 |
+| `Nix` | Nix 包管理器 |
+| `Node.js` | Node.js 运行时 |
+| `NVM` | Node Version Manager |
+| `NVIDIA` | NVIDIA 硬件/驱动 |
+| `OpenClash` | OpenClash 插件 |
+| `PAT` | Personal Access Token |
+| `PCIe` | PCIe 总线 |
+| `PostgreSQL` | PostgreSQL 数据库 |
+| `Proxy` | 代理相关 |
+| `PVE` | Proxmox VE 虚拟化 |
+| `Python` | Python 语言 |
+| `PyTorch` | PyTorch 框架 |
+| `QUIC` | QUIC 协议 |
+| `ripgrep` | ripgrep 搜索工具 |
+| `Serial Console` | 串口控制台 |
+| `SGLang` | SGLang 推理引擎 |
+| `SSH` | SSH 协议 |
+| `SSL` | SSL/TLS 证书 |
+| `Todo Tree` | VS Code Todo Tree 插件 |
+| `TortoiseGit` | TortoiseGit 客户端 |
+| `Typora` | Typora 编辑器 |
+| `uv` | uv 包管理器 |
+| `vLLM` | vLLM 推理引擎 |
+| `VS Code` | VS Code 编辑器 |
+| `Windows` | Windows 系统 |
+| `Win11` | Windows 11 |
+| `WSL2` | WSL2 子系统 |
+| `YOLOv8` | YOLOv8 目标检测 |
+
+- **标签数量**：每篇文章 2-5 个标签
+- **新增标签**：确需新增时，在此文档的标签表中追加并注明场景
+
 ## 辅助工具
 
 - `scripts/subdirectory_posts.js`：自动处理子目录文章的永久链接
+- `scripts/category_order.js`：自定义分类页排序（通过 `before_generate` hook + `sort_order` 字段，非侵入式，换主题不受影响）
+
+## 分类页排序
+
+分类页顺序由 `scripts/category_order.js` 控制，而非主题配置：
+
+- 脚本通过 `before_generate` filter 在生成前为每个 Category 模型注入 `sort_order` 字段
+- 主题 `_config.yml` 中 `category.order_by: "sort_order"` 配合使用
+- 修改排序只需编辑脚本中的 `CATEGORY_ORDER` 数组即可，无需改动主题文件
+- 排序顺序：AI 应用 → 基础设施 → 开发实践 → 网络与代理 → 工具与效率 → 杂谈
 
 ## 其他说明
 

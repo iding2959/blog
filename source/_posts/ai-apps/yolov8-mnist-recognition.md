@@ -6,9 +6,7 @@ keywords: YOLOv8, MNIST, 目标检测, 深度学习, 计算机视觉, 手写识�
 tags:
   - YOLOv8
   - MNIST
-  - 计算机视觉
-  - 深度学习
-  - 目标检测
+  - CV
 categories: AI 应用
 ---
 

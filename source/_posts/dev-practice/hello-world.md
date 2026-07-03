@@ -5,7 +5,6 @@ description: Hexo 博客 Hello World 示例文章：Markdown 语法、文章结�
 keywords: Hexo, Markdown, 博客, Hello World, 快速开始
 categories: 开发实践
 tags:
-  - 入门
   - Hexo
 ---
 

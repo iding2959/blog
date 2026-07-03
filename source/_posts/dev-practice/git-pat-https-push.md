@@ -7,8 +7,6 @@ categories: 开发实践
 tags:
   - Git
   - PAT
-  - 凭据管理
-  - 安全
 ---
 
 ## 使用 PAT 进行 Git 免密推送

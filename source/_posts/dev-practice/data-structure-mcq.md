@@ -5,9 +5,6 @@ description: 数据结构常见选择题汇总：链表、树、图、排序算�
 keywords: 数据结构, 算法, 选择题, 面试, 计算机基础
 categories: 开发实践
 tags:
-  - 选择题
-  - 算法
-  - 学习资料
 # sticky: 5
 ---
 

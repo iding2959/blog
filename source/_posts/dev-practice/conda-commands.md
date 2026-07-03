@@ -7,7 +7,6 @@ categories: 开发实践
 tags:
   - Python
   - Conda
-  - 环境管理
 ---
 
 ## 环境：Win10 64bit with conda 4.3.14

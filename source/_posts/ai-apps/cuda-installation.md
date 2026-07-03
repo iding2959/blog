@@ -6,7 +6,6 @@ keywords: CUDA, NVIDIA, GPU, 深度学习, 驱动安装, cuDNN
 tags:
   - CUDA
   - NVIDIA
-  - 深度学习
   - PyTorch
 categories: AI 应用
 ---

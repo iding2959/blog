@@ -8,7 +8,6 @@ tags:
   - PVE
   - GPU
   - PCIe
-  - 虚拟化
 ---
 
 ## 背景

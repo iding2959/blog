@@ -8,7 +8,6 @@ tags:
   - Miniconda
   - Anaconda
   - Python
-  - 环境管理
   - Conda
 ---
 

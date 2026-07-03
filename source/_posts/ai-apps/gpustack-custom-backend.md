@@ -8,8 +8,7 @@ tags:
   - GPUStack
   - vLLM
   - SGLang
-  - 模型部署
-  - LLM推理
+  - LLM
 ---
 
 ## 概述
