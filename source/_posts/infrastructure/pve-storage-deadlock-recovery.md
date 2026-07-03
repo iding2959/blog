@@ -5,7 +5,7 @@ description: PVE 网页端所有存储和虚拟机变灰问号？揭秘 pvestatd
 keywords: Proxmox VE, PVE存储问号, pvestatd死锁, 存储故障排查, 虚拟机导出恢复
 categories: 基础设施
 tags:
-  - Proxmox VE
+  - PVE
   - 虚拟化
   - 故障排查
   - Homelab

@@ -8,7 +8,7 @@ tags:
   - Cloudflare
   - SSH
   - 内网穿透
-  - cloudflared
+  - Cloudflare Tunnel
   - 安全
 ---
 

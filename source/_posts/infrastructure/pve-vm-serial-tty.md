@@ -4,7 +4,11 @@ date: 2026-02-18 17:00
 description: Proxmox VE 虚拟机串口控制台配置：GRUB 设置、TTY 终端访问、远程管理。
 keywords: Proxmox VE, PVE, 串口控制台, TTY, GRUB, 远程管理
 categories: 基础设施
-tags: [PVE, Proxmox, 虚拟机, Serial Console, 运维]
+tags:
+  - PVE
+  - 虚拟机
+  - Serial Console
+  - 运维
 ---
 
 在管理无头（Headless）服务器或虚拟机时，没有图形界面，SSH 虽然常用，但有时候内核崩溃或网络配置出错后 SSH 就连不上了。这时候 Serial Console（串口控制台）就派上用场了——它直接通过串口与虚拟机通信，不依赖网络，只要串口通了就能进入系统。

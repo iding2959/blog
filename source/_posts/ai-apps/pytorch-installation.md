@@ -8,7 +8,7 @@ tags:
   - PyTorch
   - 深度学习
   - 机器学习
-  - 环境配置
+  - 环境管理
 ---
 
 ## PyTorch 三件套 - torch、torchvision、torchaudio

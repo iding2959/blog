@@ -6,7 +6,6 @@ keywords: Proxmox VE, PVE, 磁盘扩容, LVM, 分区管理
 categories: 基础设施
 tags:
   - PVE
-  - Proxmox
   - 虚拟机
   - Linux
   - LVM

@@ -6,7 +6,7 @@ keywords: uv, Python, 包管理, pip替代, 虚拟环境, Rust
 categories: 工具与效率
 tags:
   - Python
-  - UV
+  - uv
   - 包管理
   - 虚拟环境
 ---
