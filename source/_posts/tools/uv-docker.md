@@ -24,7 +24,7 @@ uv 的设计目标之一就是**快**，这体现在 Docker 构建场景中就�
 
 ```dockerfile
 # 第一阶段：构建阶段
-FROM registry.safone.ltd:1443/cqsafone/python:3.13-slim
+FROM debian:bookworm-slim
 
 # 1️⃣ 基础系统依赖（极少）
 RUN apt-get update && apt-get install -y \
@@ -34,8 +34,8 @@ RUN apt-get update && apt-get install -y \
     libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
-# 2️⃣ 安装 uv（官方推荐方式）
-RUN pip install --no-cache-dir uv
+# 2️⃣ 安装 uv 直接从官方镜像复制 uv 二进制文件
+COPY --from=docker.1ms.run/astral/uv:latest /uv /uvx /usr/local/bin/
 
 WORKDIR /app
 
@@ -44,18 +44,19 @@ COPY pyproject.toml uv.lock ./
 
 # 4️⃣ 安装依赖（不装项目本身）
 RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --frozen --no-dev
+    uv sync --frozen --no-install-project --no-dev
 
 # 5️⃣ 再拷贝代码
 COPY . .
-
 # 暴露 FastAPI 默认端口
 EXPOSE 8000
-
 ENV PATH="/app/.venv/bin:$PATH"
 
 # 启动命令：直接调用 uvicorn
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+# 因为已经把 .venv/bin 加入了 PATH，所以可以直接运行
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000","--no-access-log"]
+
+
 ```
 
 ## 关键步骤解析
