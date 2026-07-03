@@ -6,10 +6,7 @@ keywords: Proxmox VE, PVE存储问号, pvestatd死锁, 存储故障排查, 虚�
 categories: 基础设施
 tags:
   - PVE
-  - 虚拟化
-  - 故障排查
   - Homelab
-  - 存储
 ---
 
 ## 引言

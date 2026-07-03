@@ -7,8 +7,6 @@ categories: 工具与效率
 tags:
   - uv
   - Python
-  - 包管理
-  - 效率工具
 ---
 
 ## uv - 下一代 Python 包管理工具

@@ -7,8 +7,6 @@ categories: 工具与效率
 tags:
   - Node.js
   - NVM
-  - 前端工具
-  - 版本管理
 ---
 
 ## NVM详细安装使用教程

@@ -6,9 +6,7 @@ keywords: 科学上网, 代理, VPN, 网络工具, 翻墙, 代理协议
 categories: 网络与代理
 tags:
   - Clash
-  - 代理
-  - 路由器
-  - 科学上网
+  - Proxy
 ---
 
 # Ubuntu + Clash Verge 打造全屋科学上网网关（完整实战记录）

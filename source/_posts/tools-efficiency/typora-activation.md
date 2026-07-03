@@ -7,7 +7,6 @@ categories: 工具与效率
 tags:
   - Typora
   - Markdown
-  - 软件激活
 ---
 
 ## 一、前言

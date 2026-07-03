@@ -7,8 +7,7 @@ index_img: ../../../img/tutorial/clashvert.png
 categories: 网络与代理
 tags:
   - Clash
-  - 代理
-  - 指纹浏览器
+  - Proxy
 ---
 
 ## 背景介绍

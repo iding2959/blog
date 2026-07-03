@@ -7,9 +7,7 @@ categories: 网络与代理
 tags:
   - OpenClash
   - Clash
-  - 软路由
-  - 网络优化
-  - 旁路由
+  - Proxy
 ---
 
 ## 为什么需要多订阅聚合？

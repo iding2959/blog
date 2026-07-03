@@ -6,11 +6,9 @@ keywords: Proxmox VE, PVE, 磁盘扩容, LVM, 分区管理
 categories: 基础设施
 tags:
   - PVE
-  - 虚拟机
   - Linux
   - LVM
   - ext4
-  - 运维
 ---
 
 在 PVE 环境中创建的 Linux 虚拟机（尤其是使用 Q35 虚拟化类型），默认分配的磁盘空间可能不够用。本文详细介绍如何在虚拟机内部在线扩容 ext4 文件系统，整个过程无需重启。

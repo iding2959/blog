@@ -7,8 +7,6 @@ categories: 工具与效率
 tags:
   - Python
   - uv
-  - 包管理
-  - 虚拟环境
 ---
 
 ## UV：极速Python包管理器安装配置教程

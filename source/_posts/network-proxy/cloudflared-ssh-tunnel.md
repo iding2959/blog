@@ -7,9 +7,7 @@ categories: 网络与代理
 tags:
   - Cloudflare
   - SSH
-  - 内网穿透
   - Cloudflare Tunnel
-  - 安全
 ---
 
 ## 使用 cloudflared 穿透内网实现 SSH 免密连接

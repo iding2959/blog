@@ -7,7 +7,6 @@ categories: 基础设施
 tags:
   - Nix
   - WSL2
-  - 包管理
 ---
 
 ## Nix 在 WSL2 中的安装

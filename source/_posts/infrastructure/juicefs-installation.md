@@ -7,8 +7,6 @@ categories: 基础设施
 tags:
   - JuiceFS
   - Linux
-  - 分布式文件系统
-  - Ubuntu
 ---
 
 ## JuiceFS 简介

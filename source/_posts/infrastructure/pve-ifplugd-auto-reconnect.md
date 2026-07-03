@@ -7,10 +7,6 @@ categories: 基础设施
 tags:
   - PVE
   - ifplugd
-  - 网络
-  - vmbr0
-  - 网桥
-  - 避坑指南
 ---
 
 ## 问题背景

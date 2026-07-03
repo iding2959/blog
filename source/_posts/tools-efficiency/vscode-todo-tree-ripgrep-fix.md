@@ -8,7 +8,6 @@ tags:
   - VS Code
   - Todo Tree
   - ripgrep
-  - 效率工具
 ---
 
 在 VS Code 新版本中使用 Todo Tree 插件时，可能会遇到 `command 'todo-tree.refresh' not found` 的错误，即便 Todo Tree 已经安装且显示为"已启用"状态。本文记录排查过程和解决方案。

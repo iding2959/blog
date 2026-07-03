@@ -5,12 +5,9 @@ description: 网络优化实用技巧：DNS 配置、TCP 参数调优、CDN 加�
 keywords: 网络优化, DNS, TCP, CDN, 延迟优化, 性能调优
 tags:
   - Linux
-  - 软路由
-  - 网关代理
   - Clash
   - mihomo
-  - 网络优化
-  - 性能调优
+  - Proxy
 categories: 网络与代理
 ---
 

@@ -6,9 +6,7 @@ keywords: Proxmox VE, PVE, 虚拟机克隆, machine-id, UUID
 categories: 基础设施
 tags:
   - PVE
-  - 虚拟机
   - K8s
-  - 运维
 ---
 
 在 PVE（Proxmox VE）环境中，克隆虚拟机（尤其是使用"完整克隆"）时，虽然 PVE 会自动生成新的 VM ID 和虚拟硬件 UUID，但操作系统内部的某些标识符（如 Machine ID、网卡 UUID、SSH 密钥等）往往会被原封不动地保留。这确实会导致 K8s 集群节点冲突、网络分配问题或云平台注册失败。以下是彻底清除这些唯一标识符的步骤：
