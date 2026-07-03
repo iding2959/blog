@@ -20,11 +20,12 @@ menu:
     path: /categories/
     icon: iconfont icon-category-fill
     submenu:
-      工具: /categories/工具/
-      教程: /categories/教程/
-      前端: /categories/前端/
-      后端: /categories/后端/
-      其他: /categories/其他/
+      AI 应用: /categories/AI 应用/
+      基础设施: /categories/基础设施/
+      网络与代理: /categories/网络与代理/
+      开发实践: /categories/开发实践/
+      工具与效率: /categories/工具与效率/
+      杂谈: /categories/杂谈/
   标签:
     path: /tags/
     icon: iconfont icon-tags-fill

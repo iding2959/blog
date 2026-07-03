@@ -36,14 +36,21 @@ npm run clean    # 清除缓存和生成文件
 ## 分类规范
 
 - 使用 front-matter 的 `categories` 字段，而非文件路径
-- 五大一级分类：**前端、后端、工具、教程、其他**
-- 嵌套分类示例：
+- 六大一级分类：**AI 应用、基础设施、网络与代理、开发实践、工具与效率、杂谈**
+- 分类采用单行格式（不再使用嵌套）：
   ```yaml
-  categories:
-    - 工具
-    - Python
+  categories: AI 应用
   ```
-- 子目录使用英文命名（backend/frontend/tools/tutorial/others）
+- 子目录使用英文命名对应：
+
+| 子目录              | 分类       | 包含内容                                                   |
+| ------------------- | ---------- | ---------------------------------------------------------- |
+| `ai-apps/`          | AI 应用    | GPUStack、vLLM、SGLang、RAG、模型部署、LLM 推理              |
+| `infrastructure/`   | 基础设施   | PVE、Linux、Docker、Kubernetes、存储、虚拟化                  |
+| `network-proxy/`    | 网络与代理 | OpenClash、Cloudflare、Cloudflare Tunnel、OpenWrt、HTTPS、QUIC |
+| `dev-practice/`     | 开发实践   | Python、Git、FastAPI、数据库、前后端开发                       |
+| `tools-efficiency/` | 工具与效率 | VS Code、Typora、Todo Tree、NVM、uv 等工具                     |
+| `misc/`             | 杂谈       | 职业规划、学习记录、生活、经验分享等                            |
 
 ## SEO 规范
 

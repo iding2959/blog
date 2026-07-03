@@ -1,0 +1,23 @@
+---
+title: 前端开发入门
+date: 2025-05-01 10:00:00
+description: 前端开发示例文章：React 组件设计、状态管理、性能优化技巧。
+keywords: 前端开发, React, JavaScript, 性能优化, 组件设计
+categories: 开发实践
+tags:
+  - JavaScript
+  - HTML
+  - CSS
+---
+
+## 前端开发简介
+
+前端开发是创建网站或应用程序的用户界面和用户交互部分的过程。主要涉及三种技术：HTML、CSS和JavaScript。
+
+### 技术栈
+
+- **HTML**: 提供网页的基本结构
+- **CSS**: 负责页面样式和布局
+- **JavaScript**: 实现交互功能和动态效果
+
+前端开发是一个充满创造性和挑战的领域，不断有新的技术和框架出现。 
