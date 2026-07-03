@@ -66,6 +66,9 @@ services:
       mode: global # 确保集群中每台机器都自动运行一个 Agent
       restart_policy:
         condition: on-failure
+    update_config:
+      delay: 10s
+      order: start-first
 
   portainer:
     image: portainer/portainer-ce:lts
@@ -133,6 +136,9 @@ services:
     deploy:
       restart_policy:
         condition: on-failure
+    update_config:
+      delay: 10s
+      order: start-first
     entrypoint: ["cloudflared", "tunnel"]
     command:
       - "run"
