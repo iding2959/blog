@@ -16,6 +16,12 @@ hexo.extend.filter.register('before_generate', function () {
 
   Category.forEach(function (cat) {
     const idx = CATEGORY_ORDER.indexOf(cat.name);
-    cat.sort_order = idx >= 0 ? idx : 999;
+    const sortOrder = idx >= 0 ? idx : 999;
+    // 关键：必须写入 model.data[id] 原始数据存储，
+    // 因为后续 find() 会从 data[id] 重新创建 Document，
+    // 只设置 Document 对象的属性会在 find() 时丢失
+    if (Category.data[cat._id]) {
+      Category.data[cat._id].sort_order = sortOrder;
+    }
   });
 });
