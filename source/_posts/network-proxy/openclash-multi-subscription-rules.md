@@ -8,6 +8,7 @@ tags:
   - OpenClash
   - Clash
   - Proxy
+  - OpenWrt
 ---
 
 ## 为什么需要多订阅聚合？

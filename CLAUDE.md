@@ -126,6 +126,7 @@ tags:
 | `NVM` | Node Version Manager |
 | `NVIDIA` | NVIDIA 硬件/驱动 |
 | `OpenClash` | OpenClash 插件 |
+| `OpenWrt` | OpenWrt 软路由系统 |
 | `PAT` | Personal Access Token |
 | `PCIe` | PCIe 总线 |
 | `PostgreSQL` | PostgreSQL 数据库 |
