@@ -1,6 +1,6 @@
 ---
 title: "【避坑指南】PVE 虚拟机快速安装 OpenWrt 25 的正确姿势（拒绝卡 UEFI 报错）"
-date: 2026-07-04 10:00:00
+date: 2026-04-08 08:32:00
 description: 在 PVE 中安装 OpenWrt 25.x 时，dd 直接注入法比传统 qm importdisk 更简洁高效。本文分享完整安装流程，并解决常见的 Failed to load Boot UEFI 引导报错。
 keywords: PVE, OpenWrt, UEFI, OVMF, 软路由, dd注入
 categories: 网络与代理
