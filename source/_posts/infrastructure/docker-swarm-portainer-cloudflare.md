@@ -65,9 +65,9 @@ services:
       mode: global # 确保集群中每台机器都自动运行一个 Agent
       restart_policy:
         condition: on-failure
-    update_config:
-      delay: 10s
-      order: start-first
+      update_config:
+        delay: 10s
+        order: start-first
 
   portainer:
     image: portainer/portainer-ce:lts
@@ -117,6 +117,36 @@ volumes:
 ```bash
 sudo docker stack deploy -c portanier.yml portainer
 ```
+
+### 3. 获取 Setup Token 完成初始化
+
+由于我们使用 `docker stack deploy` 方式部署，首次访问 Portainer 需要 Setup Token 来创建管理员账户。在终端运行以下命令查看 Portainer 服务日志：
+
+```bash
+sudo docker service logs portainer_portainer
+```
+
+在日志输出中，你会看到类似下面这样的一段提示：
+
+```plaintext
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Portainer is running in initial setup mode.
+Please use the following setup token to authorize the creation of the first administrator user:
+
+st-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+
+This token will expire in 30 minutes.
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+操作步骤：
+
+1. 复制日志中以 `st-` 开头的长字符串（即 Setup Token）
+2. 回到浏览器，将其粘贴到网页的 **Setup token** 输入框中
+3. 设定你自己的用户名和密码（密码至少 12 位）
+4. 点击创建，即可成功进入 Portainer 管理面板
+
+> ⚠️ 注意：该 Token 有效期为 30 分钟。如果过期，只需运行 `sudo docker service update --force portainer_portainer` 强制重启服务，新 Token 会重新生成。
 
 ## 四、实现 Cloudflare Tunnel 极速内网穿透
 
