@@ -117,6 +117,8 @@ tags:
 | `LLM` | 大语言模型推理 |
 | `LVM` | LVM 逻辑卷管理 |
 | `Markdown` | Markdown 标记语言 |
+| `Milvus` | Milvus 向量数据库 |
+| `etcd` | etcd 分布式键值存储 |
 | `Miniconda` | Miniconda 发行版 |
 | `MNIST` | MNIST 数据集 |
 | `mihomo` | mihomo 内核 |
