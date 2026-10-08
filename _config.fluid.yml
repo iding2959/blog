@@ -9,7 +9,7 @@ navbar:
   # 导航栏毛玻璃特效，实验性功能，可能会造成卡顿
   ground_glass:
     enable: false
-  # 导航菜单：theme.navbar.menu 是主题唯一读取路径，必须是数组；
+  # 导航菜单：theme.navbar.menu 是 Fluid 唯一读取路径，必须是数组；
   # 每项用 link 指定跳转地址（不是 path），带 submenu 的项会渲染成下拉菜单。
   menu:
     - { name: "首页", link: "/", icon: "iconfont icon-home-fill" }
@@ -55,6 +55,18 @@ links:
       avatar: /img/fluid.png
       descr: 一款美观、优雅的Hexo主题
       intro: 一款美观、优雅的Hexo主题
+    - title: RustFS
+      link: https://rustfs.com/
+      avatar: https://link.952405.xyz/api/s/lazaYm/rustfs.png
+      descr: Rust 编写的高性能对象存储
+      intro: Rust 编写的高性能对象存储
+    # RSS 订阅源也作为一个友链条目：头像用自定义的 /img/rss.svg
+    # （友链头像会被裁成圆形，该图标图形集中在安全区内）
+    - title: RSS 订阅
+      link: /atom.xml
+      avatar: /img/rss.svg
+      descr: 订阅本站文章更新
+      intro: 订阅本站文章更新
   # 当成员头像加载失败时，替换为指定图片
   onerror_avatar: /img/avatar.png # 可选
   # 友链下方自定义区域，支持 HTML
@@ -113,8 +125,8 @@ category:
 
 # 页脚
 footer:
-  # 页脚第一行文字，这里作为 RSS 订阅入口
-  content: '<a href="/atom.xml" target="_blank" rel="noopener" title="订阅本站 RSS"><i class="iconfont icon-rss"></i> RSS 订阅</a>'
+  # 页脚第一行文字（留空：RSS 入口已并入上方 links.items 的友链条目）
+  content: ''
   # 展示网站的 PV、UV 统计数
   statistics:
     enable: false
