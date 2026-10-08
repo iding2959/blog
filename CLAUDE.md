@@ -85,6 +85,7 @@ tags:
 | `API` | API 设计与开发 |
 | `Anaconda` | Anaconda 发行版 |
 | `Career` | 职业规划相关 |
+| `Ceph` | Ceph 分布式存储（RBD/CephFS、MON/OSD 心跳、时钟偏差等） |
 | `Cloudflare` | Cloudflare 平台相关 |
 | `Cloudflare Tunnel` | Cloudflare Tunnel 内网穿透 |
 | `Clash` | Clash 代理客户端 |
