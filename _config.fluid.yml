@@ -24,7 +24,9 @@ navbar:
         - { name: "开发实践", link: "/categories/开发实践/" }
         - { name: "网络与代理", link: "/categories/网络与代理/" }
         - { name: "工具与效率", link: "/categories/工具与效率/" }
-        - { name: "杂谈", link: "/categories/杂谈/" }
+        # 「杂谈」分类当前无文章，Hexo 不会生成该分类页，添加会导致 404；
+        # 后续发布杂谈文章时再恢复此行：
+        # - { name: "杂谈", link: "/categories/杂谈/" }
     - { name: "标签", link: "/tags/", icon: "iconfont icon-tags-fill" }
     - { name: "关于", link: "/about/", icon: "iconfont icon-user-fill" }
     - { name: "友链", link: "/links/", icon: "iconfont icon-link-fill" }
@@ -90,10 +92,16 @@ post:
     # 原配置的 follow / expand_all 不是 Fluid 1.9.8 支持的键，按原意图映射到 collapseDepth
     collapseDepth: 6
 
+# 分类页
+category:
+  # 分类排序字段：sort_order 由 scripts/category_order.js 在生成前注入每个 Category 模型
+  # 写在这里而非主题 _config.yml，主题升级时才不会丢失（主题原值为 -length）
+  order_by: "sort_order"
+
 # 页脚
 footer:
-  # 页脚第一行文字
-  content: ''
+  # 页脚第一行文字，这里作为 RSS 订阅入口
+  content: '<a href="/atom.xml" target="_blank" rel="noopener" title="订阅本站 RSS"><i class="iconfont icon-rss"></i> RSS 订阅</a>'
   # 展示网站的 PV、UV 统计数
   statistics:
     enable: false

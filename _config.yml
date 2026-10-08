@@ -109,3 +109,18 @@ sitemap:
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+# RSS / Atom 订阅（hexo-generator-feed）
+## 生成 /atom.xml；autodiscovery 会自动向页面 <head> 注入 alternate 链接
+feed:
+  enable: true
+  type: atom
+  path: atom.xml
+  # 订阅中收录的文章数
+  limit: 20
+  # 是否在订阅中包含全文
+  content: true
+  # 订阅源图标
+  icon: /img/favicon.png
+  order_by: -date
+  autodiscovery: true
