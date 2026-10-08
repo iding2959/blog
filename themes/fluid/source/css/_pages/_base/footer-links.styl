@@ -1,13 +1,19 @@
 // 页脚友情链接样式
 
+// 覆盖主题默认的 .footer-inner 上内边距（原为 padding 3rem 0 1rem 0），
+// 让页脚友链区域整体上移。本文件由 _pages/pages.styl 的 `_base/*` 按字母序导入，
+// 排在 base.styl（其内部先导入 _widget/footer.styl）之后，因此可直接覆盖。
+.footer-inner
+  padding-top 1.5rem
+
 .footer-links-container
   width 100%
   display flex
   justify-content center
 
 .footer-links
-  margin-top 1.5rem
-  padding-top 1.5rem
+  margin-top 0.5rem
+  padding-top 0.75rem
   border-top 1px solid var(--line-color)
   max-width 960px
   margin-left auto
@@ -29,13 +35,17 @@
     display flex
     flex-wrap wrap
     margin -.5rem
-    justify-content flex-start
+    justify-content center
     max-width 960px
     width 100%
     
   .footer-links-item
     display flex
     flex-direction column
+    // 定宽：卡片宽度原本由内容撑开，而各项「描述」文本长度不同
+    // （描述默认被 max-height 0 收起，但宽度仍参与计算），导致卡片宽窄不一。
+    // 13rem 可容纳最长的一条描述单行显示。
+    width 13rem
     padding .5rem
     margin .25rem
     color var(--post-text-color)
@@ -89,6 +99,8 @@
       justify-content center
       
     .footer-links-item
+      // 小屏不做定宽，交给内容与换行自适应
+      width auto
       padding .25rem .5rem
       margin .15rem
       
