@@ -12,3 +12,7 @@ public
 start.bat
 data
 .idea
+# 规划文件（planning-with-files）
+task_plan.md
+findings.md
+progress.md
