@@ -4,7 +4,7 @@ This file provides guidance to Claude Code when working with this repository.
 
 ## 项目概述
 
-基于 **Hexo 7.3.0** + **Fluid 1.9.8** 主题的个人技术博客，部署至 `blog.952405.xyz`。
+基于 **Hexo 8.1.2** + **Fluid 1.9.9** 主题的个人技术博客，部署至 `blog.952405.xyz`。
 
 ## 常用命令
 
@@ -168,7 +168,7 @@ tags:
 分类页顺序由 `scripts/category_order.js` 控制，而非主题配置：
 
 - 脚本通过 `before_generate` filter 在生成前为每个 Category 模型注入 `sort_order` 字段
-- 主题 `_config.yml` 中 `category.order_by: "sort_order"` 配合使用
+- `_config.fluid.yml` 中 `category.order_by: "sort_order"` 配合使用（写在用户配置文件里，主题升级不会丢失）
 - 修改排序只需编辑脚本中的 `CATEGORY_ORDER` 数组即可，无需改动主题文件
 - 排序顺序：AI 应用 → 基础设施 → 开发实践 → 网络与代理 → 工具与效率 → 杂谈
 
@@ -176,6 +176,10 @@ tags:
 
 - 暗色模式：默认 `auto`（跟随系统），可在 `_config.fluid.yml` 调整
 - SEO 配置：已启用 sitemap 生成器，Google 网站验证文件为 `source/googleb0cf6bcaf11a4a08.html`
-- 导航菜单：在 `_config.fluid.yml` 的 **`navbar.menu`** 中配置（Fluid 1.9.8 只读这个路径，写在顶层 `menu` 下不会生效）。必须是数组，每项用 `link` 指定跳转地址（不是 `path`），带 `submenu` 的项渲染为下拉菜单，子菜单项同样用 `link`
+- 导航菜单：在 `_config.fluid.yml` 的 **`navbar.menu`** 中配置（Fluid 只读这个路径，写在顶层 `menu` 下不会生效）。必须是数组，每项用 `link` 指定跳转地址（不是 `path`），带 `submenu` 的项渲染为下拉菜单，子菜单项同样用 `link`
 - 分类链接须与 Hexo 生成的目录名一致：分类名含空格时会被转成连字符（`AI 应用` → `/categories/AI-应用/`）
-- 主题配置路径陷阱：文章目录是 `post.toc.*`（不是顶层 `toc`），阅读时长键名是 `post.meta.min2read.wpm`（不是 `words`），Fluid 1.9.8 已移除打赏功能（无 `reward` 段）
+- 主题配置路径陷阱：文章目录是 `post.toc.*`（不是顶层 `toc`），阅读时长键名是 `post.meta.min2read.wpm`（不是 `words`），主题已移除打赏功能（无 `reward` 段）
+- Fluid 1.9.9 起 `post.toc.expand_all` 是官方配置项（默认 `true`），模板会据此把 `collapseDepth` 置为 6
+- **主题升级**：`themes/fluid` 含无法用配置承载的定制，升级前必须备份、覆盖新版后还原并合并官方改动：
+  `layout/_partials/header/navigation.ejs`（下拉菜单父级改为真实链接，使其可点击跳转）、`layout/_partials/footer.ejs`（页脚友链显示条件）、`layout/_partials/footer/site_links.ejs`、`layout/_partials/post/copyright.ejs`（复制引用按钮，官方改过 `full_url_for(page.path)`）、`source/css/_pages/_base/footer-links.styl`、`source/css/_pages/_base/_widget/copyright.styl`、`source/img/avatar.png`、`source/img/favicon.png`。
+  配置类定制（`navbar` / `category` / `about` / `post.toc` 等）已全部移入 `_config.fluid.yml`，主题 `_config.yml` 与官方保持一致，升级时无需再打补丁
