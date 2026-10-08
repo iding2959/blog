@@ -42,10 +42,14 @@
   .footer-links-item
     display flex
     flex-direction column
-    // 定宽：卡片宽度原本由内容撑开，而各项「描述」文本长度不同
-    // （描述默认被 max-height 0 收起，但宽度仍参与计算），导致卡片宽窄不一。
-    // 13rem 可容纳最长的一条描述单行显示。
-    width 13rem
+    // 等分容器而非设定宽：卡片宽度原由内容撑开，而各项「描述」文本长度不同
+    // （描述默认被 max-height 0 收起，宽度仍参与计算），会导致宽窄不一。
+    // flex-basis 0 + grow 1 让每张卡片等分；max-width 防止宽屏下拉得过长。
+    // min-width 0 必须显式写：flex item 默认 min-width:auto，会被内容的
+    // min-content 宽度顶住，导致收缩量各不相同、仍然不等宽。
+    flex 1 1 0
+    min-width 0
+    max-width 13rem
     padding .5rem
     margin .25rem
     color var(--post-text-color)
@@ -99,7 +103,9 @@
       justify-content center
       
     .footer-links-item
-      // 小屏不做定宽，交给内容与换行自适应
+      // 小屏不做等分，交给内容宽度并允许换行
+      flex 0 1 auto
+      max-width none
       width auto
       padding .25rem .5rem
       margin .15rem
