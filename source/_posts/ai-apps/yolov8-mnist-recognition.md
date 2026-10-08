@@ -122,7 +122,7 @@ def camera_recognition(model_path):
 
 经过50轮训练，模型在MNIST测试集上达到了约99%的准确率。在实时摄像头测试中，模型能够成功识别清晰手写的数字，甚至在不同角度、大小和光照条件下也表现良好。
 
-![YOLOv8手写数字识别实时效果](../../img/tutorial/yolo8sxt.png)
+![YOLOv8手写数字识别实时效果](../../../img/tutorial/yolo8sxt.png)
 
 实际应用时，我们发现以下因素会影响识别效果：
 - 笔迹的清晰度和粗细

@@ -1,6 +1,6 @@
 ---
 title: PVE 虚拟机克隆后清理唯一标识符指南
-date: 2026-02-15 14:00
+date: 2026-02-15 14:00:00
 description: Proxmox VE 虚拟机克隆后清理唯一标识：machine-id、网络配置、SSH 密钥重置。
 keywords: Proxmox VE, PVE, 虚拟机克隆, machine-id, UUID
 categories: 基础设施

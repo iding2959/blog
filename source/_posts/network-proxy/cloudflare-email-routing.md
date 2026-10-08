@@ -1,6 +1,6 @@
 ---
 title: Cloudflare邮件分类转发多个地址
-date: 2025-06-1 12:00:00
+date: 2025-06-01 12:00:00
 description: Cloudflare Email Routing 免费邮件转发配置：域名邮箱、DNS 设置、SPF/DKIM 配置。
 keywords: Cloudflare, 邮件转发, Email Routing, DNS, 域名邮箱
 tags:
@@ -19,13 +19,13 @@ Cloudflare提供了强大的电子邮件路由功能，可以根据收件人地�
 
 首先登录您的Cloudflare账户，选择要配置的域名，然后在左侧导航栏中找到并点击「电子邮件路由」选项。
 
-![进入电子邮件路由](../../img/tutorial/1action.png)
+![进入电子邮件路由](../../../img/tutorial/1action.png)
 
 ### 1.2 打开电子邮件 Worker 创建
 
 在电子邮件路由页面中，找到并点击「创建电子邮件 Worker」按钮。这将允许您创建一个自定义的邮件处理逻辑。
 
-![创建电子邮件Worker](../..//img/tutorial/2chuangjian.png)
+![创建电子邮件Worker](../../../img/tutorial/2chuangjian.png)
 
 将默认代码修改为以下模式：
 
@@ -54,7 +54,7 @@ export default {
 
 完成代码编写后，进入目标规则标签，开启 Catch-All 功能（捕获所有邮件），然后点击编辑按钮进行配置。
 
-![配置Catch-All规则](../../img/tutorial/3catchall.png)
+![配置Catch-All规则](../../../img/tutorial/3catchall.png)
 
 ## 2. 高级配置示例
 

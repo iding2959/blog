@@ -23,11 +23,11 @@ CUDA（Compute Unified Device Architecture）是NVIDIA推出的并行计算平�
 
 首先打开NVIDIA控制面板，点击界面右下角的"帮助"菜单，然后选择"系统信息"选项。
 
-![打开NVIDIA系统信息](../../img/tutorial/cuda-check-version.png)
+![打开NVIDIA系统信息](../../../img/tutorial/cuda-check-version.png)
 
 在系统信息窗口中，您可以查看到您的显卡型号以及支持的CUDA版本。如图所示，此系统适配的CUDA版本是12.9。
 
-![NVIDIA系统信息](../../img/tutorial/cuda-system-info.png)
+![NVIDIA系统信息](../../../img/tutorial/cuda-system-info.png)
 
 ## 2. 选择合适的PyTorch版本
 
@@ -41,7 +41,7 @@ CUDA（Compute Unified Device Architecture）是NVIDIA推出的并行计算平�
 
 复制对应的命令 然后到 python环境中执行下载命令 耐心等待下载完成
 
-![选择PyTorch版本](../../img/tutorial/pytorch-select-version.png)
+![选择PyTorch版本](../../../img/tutorial/pytorch-select-version.png)
 
 > **注意**：如果您选择了不匹配的CUDA版本（如选择CUDA 11.8而您的显卡支持CUDA 12.8），可能会导致在深度学习训练时出现不兼容问题。这是一个非常常见的血泪教训。
 
@@ -55,7 +55,7 @@ python -c "import torch; print('GPU可用:',torch.cuda.is_available()); print('G
 
 执行上述命令后，您应该能看到类似以下的输出：
 
-![PyTorch安装成功验证](../../img/tutorial/pytorch-install-success.png)
+![PyTorch安装成功验证](../../../img/tutorial/pytorch-install-success.png)
 
 如果`GPU可用`显示为`True`，则表示您的PyTorch已成功安装且能正确识别GPU。如果显示为`False`，请检查您安装的CUDA版本是否与您的显卡兼容，以及PyTorch版本是否与CUDA版本匹配。
 

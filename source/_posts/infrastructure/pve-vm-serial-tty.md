@@ -1,6 +1,6 @@
 ---
 title: 开启 PVE 虚拟机的 Serial TTY 实现无头服务器连接
-date: 2026-02-18 17:00
+date: 2026-02-18 17:00:00
 description: Proxmox VE 虚拟机串口控制台配置：GRUB 设置、TTY 终端访问、远程管理。
 keywords: Proxmox VE, PVE, 串口控制台, TTY, GRUB, 远程管理
 categories: 基础设施

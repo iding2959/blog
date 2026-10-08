@@ -62,7 +62,7 @@ uv --version
 uv --help
 ```
 
-![UV帮助信息](../../img/uv-guide/uvhelp.png)
+![UV帮助信息](../../../img/uv-guide/uvhelp.png)
 
 ### 手动配置环境变量
 
@@ -218,7 +218,7 @@ uv python install 3.12
 uv python install 3.11 3.12 3.13
 ```
 
-![UV Python版本列表](../../img/uv-guide/uvlist.png)
+![UV Python版本列表](../../../img/uv-guide/uvlist.png)
 
 ### 6.2 切换Python版本
 

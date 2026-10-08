@@ -321,7 +321,7 @@ cloudflared ──(TCP/7844 或 443)──> 运营商放行 ──✓──> Clo
 3. 进入 **网络 (Network)** 菜单
 4. 找到 **HTTP/3 (with QUIC)** 开关，将其关闭
 
-![Cloudflare 网络设置](../../img/cloudflare-tunnel/network-http3-disable.png)
+![Cloudflare 网络设置](../../../img/cloudflare-tunnel/network-http3-disable.png)
 
 #### 2. 使用 Cloudflare 优选 IP（SaaS 域名重定向）
 
