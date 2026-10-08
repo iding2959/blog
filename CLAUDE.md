@@ -113,6 +113,7 @@ tags:
 | `JavaScript` | JavaScript |
 | `JuiceFS` | JuiceFS 分布式文件系统 |
 | `K8s` | Kubernetes |
+| `Kafka` | Apache Kafka 消息队列、KRaft、listener/广播地址等配置排查 |
 | `Linux` | Linux 系统 |
 | `LLM` | 大语言模型推理 |
 | `LVM` | LVM 逻辑卷管理 |
