@@ -176,4 +176,6 @@ tags:
 
 - 暗色模式：默认 `auto`（跟随系统），可在 `_config.fluid.yml` 调整
 - SEO 配置：已启用 sitemap 生成器，Google 网站验证文件为 `source/googleb0cf6bcaf11a4a08.html`
-- 导航菜单：在 `_config.fluid.yml` 的 `menu` 中配置，支持子菜单
+- 导航菜单：在 `_config.fluid.yml` 的 **`navbar.menu`** 中配置（Fluid 1.9.8 只读这个路径，写在顶层 `menu` 下不会生效）。必须是数组，每项用 `link` 指定跳转地址（不是 `path`），带 `submenu` 的项渲染为下拉菜单，子菜单项同样用 `link`
+- 分类链接须与 Hexo 生成的目录名一致：分类名含空格时会被转成连字符（`AI 应用` → `/categories/AI-应用/`）
+- 主题配置路径陷阱：文章目录是 `post.toc.*`（不是顶层 `toc`），阅读时长键名是 `post.meta.min2read.wpm`（不是 `words`），Fluid 1.9.8 已移除打赏功能（无 `reward` 段）
