@@ -2,39 +2,32 @@
 # Hexo Fluid 主题自定义配置
 #---------------------------
 
-# 网站标题
+# 网站标题与导航栏
 navbar:
   # 导航栏左侧的标题，为空则按 hexo config 中的配置
   blog_title: "iDing's 博客"
   # 导航栏毛玻璃特效，实验性功能，可能会造成卡顿
   ground_glass:
     enable: false
-
-# 导航菜单
-menu:
-  首页: /
-  归档:
-    path: /archives/
-    icon: iconfont icon-archive-fill
-  分类:
-    path: /categories/
-    icon: iconfont icon-category-fill
-    submenu:
-      AI 应用: /categories/AI 应用/
-      基础设施: /categories/基础设施/
-      开发实践: /categories/开发实践/
-      网络与代理: /categories/网络与代理/
-      工具与效率: /categories/工具与效率/
-      杂谈: /categories/杂谈/
-  标签:
-    path: /tags/
-    icon: iconfont icon-tags-fill
-  关于:
-    path: /about/
-    icon: iconfont icon-user-fill
-  友链:
-    path: /links/
-    icon: iconfont icon-link-fill
+  # 导航菜单：theme.navbar.menu 是 Fluid 1.9.8 唯一读取路径，必须是数组；
+  # 每项用 link 指定跳转地址（不是 path），带 submenu 的项会渲染成下拉菜单。
+  menu:
+    - { name: "首页", link: "/", icon: "iconfont icon-home-fill" }
+    - { name: "归档", link: "/archives/", icon: "iconfont icon-archive-fill" }
+    - name: "分类"
+      link: "/categories/"
+      icon: "iconfont icon-category-fill"
+      submenu:
+        # 分类目录名由 Hexo 生成：名称里的空格会转成连字符（AI 应用 → AI-应用）
+        - { name: "AI 应用", link: "/categories/AI-应用/" }
+        - { name: "基础设施", link: "/categories/基础设施/" }
+        - { name: "开发实践", link: "/categories/开发实践/" }
+        - { name: "网络与代理", link: "/categories/网络与代理/" }
+        - { name: "工具与效率", link: "/categories/工具与效率/" }
+        - { name: "杂谈", link: "/categories/杂谈/" }
+    - { name: "标签", link: "/tags/", icon: "iconfont icon-tags-fill" }
+    - { name: "关于", link: "/about/", icon: "iconfont icon-user-fill" }
+    - { name: "友链", link: "/links/", icon: "iconfont icon-link-fill" }
 
 # 首页
 index:
@@ -51,11 +44,14 @@ links:
     - title: Hexo官网 # 名称
       link: https://hexo.io # 链接
       avatar: https://hexo.io/logo.svg # 头像
-      descr: 快速、简洁且高效的博客框架 # 描述
+      # descr 显示在页脚，intro 显示在 /links/ 页，两个字段名都写才能都显示
+      descr: 快速、简洁且高效的博客框架
+      intro: 快速、简洁且高效的博客框架
     - title: Fluid主题
       link: https://github.com/fluid-dev/hexo-theme-fluid
       avatar: /img/fluid.png
       descr: 一款美观、优雅的Hexo主题
+      intro: 一款美观、优雅的Hexo主题
   # 当成员头像加载失败时，替换为指定图片
   onerror_avatar: /img/avatar.png # 可选
   # 友链下方自定义区域，支持 HTML
@@ -81,11 +77,18 @@ post:
     # 阅读时长
     min2read:
       enable: true
-      # 每分钟阅读多少字，如果是技术文章，建议降低
-      words: 100
+      # 每分钟阅读字数：主题读取的键名是 wpm，写成 words 会被忽略
+      wpm: 100
     # 浏览量
     views:
       enable: false
+
+  # 文章目录：主题读取路径是 post.toc，写在顶层 toc 下不会生效
+  toc:
+    enable: true
+    # 目录初始展开深度：0 = 全部折叠，6 = 全部展开
+    # 原配置的 follow / expand_all 不是 Fluid 1.9.8 支持的键，按原意图映射到 collapseDepth
+    collapseDepth: 6
 
 # 页脚
 footer:
@@ -110,6 +113,8 @@ font:
   code_font_size: 85%
 
 # 打赏
+# Fluid 1.9.8 已移除打赏功能，主题没有 reward 配置段，以下配置不会生效；
+# 保留仅为记录，将来主题恢复该功能时可直接复用。
 reward:
   enable: false
   # 打赏图标
@@ -128,14 +133,6 @@ reward:
     #   icon: fab fa-weixin
     #   text: 微信
     #   link: https://example.com
-
-# 文章目录
-toc:
-  enable: true
-  # 是否监听滚动变化持续高亮当前章节
-  follow: true
-  # 简洁模式，显示成目录形式
-  expand_all: true
 
 # 代码高亮
 code:
@@ -162,4 +159,4 @@ custom_css:
 
 # 网页访问统计
 web_analytics:
-  enable: false 
+  enable: false
