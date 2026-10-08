@@ -9,24 +9,25 @@ navbar:
   # 导航栏毛玻璃特效，实验性功能，可能会造成卡顿
   ground_glass:
     enable: false
-  # 导航菜单：theme.navbar.menu 是 Fluid 1.9.8 唯一读取路径，必须是数组；
+  # 导航菜单：theme.navbar.menu 是主题唯一读取路径，必须是数组；
   # 每项用 link 指定跳转地址（不是 path），带 submenu 的项会渲染成下拉菜单。
   menu:
     - { name: "首页", link: "/", icon: "iconfont icon-home-fill" }
     - { name: "归档", link: "/archives/", icon: "iconfont icon-archive-fill" }
-    - name: "分类"
-      link: "/categories/"
-      icon: "iconfont icon-category-fill"
-      submenu:
-        # 分类目录名由 Hexo 生成：名称里的空格会转成连字符（AI 应用 → AI-应用）
-        - { name: "AI 应用", link: "/categories/AI-应用/" }
-        - { name: "基础设施", link: "/categories/基础设施/" }
-        - { name: "开发实践", link: "/categories/开发实践/" }
-        - { name: "网络与代理", link: "/categories/网络与代理/" }
-        - { name: "工具与效率", link: "/categories/工具与效率/" }
-        # 「杂谈」分类当前无文章，Hexo 不会生成该分类页，添加会导致 404；
-        # 后续发布杂谈文章时再恢复此行：
-        # - { name: "杂谈", link: "/categories/杂谈/" }
+    # 「分类」保持为普通链接：点击直接进入分类总览页，不挂下拉菜单。
+    # 如需恢复下拉子菜单，改回下面被注释的形式即可；注意两点：
+    # ① 分类名含空格时 Hexo 生成的目录名会把空格转成连字符（AI 应用 → /categories/AI-应用/）；
+    # ② 空分类（如当前的「杂谈」）不生成页面，写进子菜单会 404。
+    # - name: "分类"
+    #   link: "/categories/"
+    #   icon: "iconfont icon-category-fill"
+    #   submenu:
+    #     - { name: "AI 应用", link: "/categories/AI-应用/" }
+    #     - { name: "基础设施", link: "/categories/基础设施/" }
+    #     - { name: "开发实践", link: "/categories/开发实践/" }
+    #     - { name: "网络与代理", link: "/categories/网络与代理/" }
+    #     - { name: "工具与效率", link: "/categories/工具与效率/" }
+    - { name: "分类", link: "/categories/", icon: "iconfont icon-category-fill" }
     - { name: "标签", link: "/tags/", icon: "iconfont icon-tags-fill" }
     - { name: "关于", link: "/about/", icon: "iconfont icon-user-fill" }
     - { name: "友链", link: "/links/", icon: "iconfont icon-link-fill" }
@@ -88,9 +89,21 @@ post:
   # 文章目录：主题读取路径是 post.toc，写在顶层 toc 下不会生效
   toc:
     enable: true
-    # 目录初始展开深度：0 = 全部折叠，6 = 全部展开
-    # 原配置的 follow / expand_all 不是 Fluid 1.9.8 支持的键，按原意图映射到 collapseDepth
-    collapseDepth: 6
+    # Fluid 1.9.9 起官方支持 expand_all（模板会据此把 collapseDepth 置为 6）；
+    # 1.9.8 时代没有该键，故此前手工写的 collapseDepth，现已回归官方写法
+    expand_all: true
+
+# 关于页
+# 写在用户配置里而非主题 _config.yml，主题升级时才不会丢失
+about:
+  name: "iDing"
+  intro: " "
+  # 注意：icons 是数组，主题配置合并对数组是整体替换，
+  # 所以这里必须写全，否则主题默认的三个图标会一并丢失
+  icons:
+    - { class: "iconfont icon-github-fill", link: "https://github.com/idinging", tip: "GitHub" }
+    - { class: "iconfont icon-douban-fill", link: "https://douban.com", tip: "豆瓣" }
+    - { class: "iconfont icon-wechat-fill", qrcode: "/img/favicon.png" }
 
 # 分类页
 category:

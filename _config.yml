@@ -112,10 +112,15 @@ deploy:
 
 # RSS / Atom 订阅（hexo-generator-feed）
 ## 生成 /atom.xml；autodiscovery 会自动向页面 <head> 注入 alternate 链接
+## 注意 type/path 故意写成数组：hexo-server 的预览中间件只对字符串 'atom' 硬编码
+## Content-Type: application/atom+xml（不带 charset，浏览器按纯文本用系统编码解码，
+## 中文显示为乱码）；写成数组会落到通用分支，按扩展名给出 application/xml，浏览器可正常渲染。
 feed:
   enable: true
-  type: atom
-  path: atom.xml
+  type:
+    - atom
+  path:
+    - atom.xml
   # 订阅中收录的文章数
   limit: 20
   # 是否在订阅中包含全文
