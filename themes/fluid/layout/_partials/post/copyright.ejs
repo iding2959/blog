@@ -12,7 +12,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div><%= page.title %></div>
-      <div><%= decode_url(page.permalink) %></div>
+      <div><%= decode_url(full_url_for(page.path)) %></div>
     </div>
     <div class="license-meta">
       <% if (theme.post.copyright.author.enable && (page.author || config.author)) { %>
@@ -61,7 +61,7 @@
     </div>
     <div class="license-notice">
       <div class="license-notice-text">转发请注明出处</div>
-      <button class="copy-btn" id="copyArticleInfo" data-title="<%= page.title %>" data-url="<%= decode_url(page.permalink) %>" data-author="<%- page.author || config.author %>">
+      <button class="copy-btn" id="copyArticleInfo" data-title="<%= page.title %>" data-url="<%= decode_url(full_url_for(page.path)) %>" data-author="<%- page.author || config.author %>">
         <i class="iconfont icon-copy"></i> 复制引用信息
       </button>
     </div>
