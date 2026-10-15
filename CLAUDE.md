@@ -154,6 +154,7 @@ tags:
 | `Windows` | Windows 系统 |
 | `Win11` | Windows 11 |
 | `WSL2` | WSL2 子系统 |
+| `XFS` | XFS 文件系统（在线扩容、xfs_repair、与 ext4 的差异） |
 | `YOLOv8` | YOLOv8 目标检测 |
 
 - **标签数量**：每篇文章 2-5 个标签

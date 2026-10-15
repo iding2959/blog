@@ -162,17 +162,21 @@ sda3 现在是 508.9G，逻辑卷也是 508.9G。
 sudo growpart /dev/sda 3 && sudo pvresize /dev/sda3 && sudo lvextend -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv && sudo resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv
 ```
 
-## 8. XFS 文件系统扩容（补充）
+## 8. XFS 文件系统扩容
 
-如果你的逻辑卷使用的是 **XFS** 文件系统（常见于 CentOS/RHEL），最后一步需要用 `xfs_growfs` 替代 `resize2fs`：
+如果文件系统是 **XFS**（常见于 CentOS/RHEL、openEuler、麒麟等），最后一步要把 `resize2fs` 换成 `xfs_growfs`，而且**参数传挂载点、不是设备**：
 
 ```bash
-# XFS 在线扩容
-sudo xfs_growfs /mount/point
-
-# 例如根目录
+# XFS 在线扩容：传挂载点
 sudo xfs_growfs /
+
+# 传设备会直接报错：
+# xfs_growfs: /dev/sda2 is not a mounted XFS filesystem
 ```
+
+XFS 还有一条 ext4 没有的硬限制：**只能扩、不能缩**。裸分区 + XFS、LVM + XFS 两种形态的完整流程、报错速查表单独写了一篇：
+
+👉 [《PVE 虚拟机 XFS 系统盘在线扩容指南（非 LVM）》](/2026/10/pve-vm-xfs-disk-extend/)
 
 ## 总结
 
